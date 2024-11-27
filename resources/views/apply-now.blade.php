@@ -16,30 +16,37 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.3.5/signature_pad.min.js"
         integrity="sha512-kw/nRM/BMR2XGArXnOoxKOO5VBHLdITAW00aG8qK4zBzcLVZ4nzg7/oYCaoiwc8U9zrnsO9UHqpyljJ8+iqYiQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    {{-- <script src="/resources/js/style.js"></script> --}}
-    <!-- Load the Vite JavaScript file -->
     @vite(['resources/js/app.js'])
 </head>
 
 <body>
-
     <div class="container mt-5">
         <h2>Business Application Form</h2>
-        <form>
-            <!-- Company Information -->
-            <div class="mb-3">
-                <label for="companyName" class="form-label">Company Name</label>
-                <input type="text" class="form-control" id="companyName" required>
-            </div>
 
+        <form action="{{ route('apply.store') }}" method="POST">
+            @csrf
+            <div class="mb-3">
+                <label for="companyName" class="form-label">Company Name <span>*</span></label>
+                <input type="text" name="company_name" class="form-control" id="companyName" required>
+                @error('company_name')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+
+            </div>
             <div class="row mb-3">
                 <div class="col-md-6">
                     <label for="dba" class="form-label">DBA</label>
-                    <input type="text" class="form-control" id="dba" required>
+                    <input type="text" name="dba" class="form-control" id="dba">
+                    @error('dba')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="col-md-6">
                     <label for="dbNumber" class="form-label">D&B Number</label>
-                    <input type="text" class="form-control" id="dbNumber" required>
+                    <input type="text" name="db_number" class="form-control" id="dbNumber">
+                    @error('db_number')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
             </div>
 
@@ -48,282 +55,261 @@
                 <div class="col-md-6">
                     <label class="form-label">Have you been in business over 5 years?</label>
                     <div>
-                        <input type="radio" class="btn-check" name="businessYears" id="businessYes" autocomplete="off"
-                            required>
+                        <input type="radio" class="btn-check" name="business_years" id="businessYes"
+                            autocomplete="off" value="yes" required>
+
                         <label class="btn btn-outline-primary" for="businessYes">Yes</label>
 
-                        <input type="radio" class="btn-check" name="businessYears" id="businessNo" autocomplete="off"
-                            required>
+                        <input type="radio" class="btn-check" name="business_years" id="businessNo" autocomplete="off"
+                            value="no" required>
+
                         <label class="btn btn-outline-primary" for="businessNo">No</label>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <label for="amountRequested" class="form-label">Amount Requested</label>
-                    <input type="number" class="form-control" id="amountRequested" required>
+                    <input type="number" name="amount_requested" class="form-control" id="amountRequested">
                 </div>
             </div>
 
-            <!-- Business Address -->
             <div class="mb-3">
-                <label for="businessAddress" class="form-label">Business Address</label>
-                <input type="text" class="form-control" id="businessAddress" placeholder="Address Line" required>
+                <label for="businessAddress" class="form-label">Business Address <span>*</span></label>
+                <input type="text" name="business_address" class="form-control" id="businessAddress"
+                    placeholder="Address Line" required>
             </div>
 
             <div class="row mb-3">
-                <!-- City -->
                 <div class="col-md-4">
-                    <input type="text" class="form-control" id="city" placeholder="City" required>
+                    <input type="text" name="city" class="form-control" id="city" placeholder="City"
+                        required>
                 </div>
 
-                <!-- State -->
                 <div class="col-md-4">
-                    <select class="form-select" id="state" required>
+                    <select class="form-select" name="state" id="state" required>
                         <option selected>Select State</option>
                         <option value="1">State 1</option>
                         <option value="2">State 2</option>
                     </select>
                 </div>
 
-                <!-- Zip Code -->
                 <div class="col-md-4">
-                    <input type="text" class="form-control" id="zipCode" placeholder="Zip Code" required>
+                    <input type="text" name="zip_code" class="form-control" id="zipCode" placeholder="Zip Code"
+                        required>
                 </div>
             </div>
 
 
             <div class="row mb-3">
-                <!-- Business Phone -->
                 <div class="col-md-6">
-                    <label for="businessPhone" class="form-label">Business Phone</label>
-                    <input type="tel" class="form-control" id="businessPhone" required>
+                    <label for="businessPhone" class="form-label">Business Phone <span>*</span></label>
+                    <input type="tel" name="business_phone" class="form-control" id="businessPhone" required>
                 </div>
 
-                <!-- Fax -->
                 <div class="col-md-6">
                     <label for="fax" class="form-label">Fax</label>
-                    <input type="tel" class="form-control" id="fax">
+                    <input type="tel" name="fax" class="form-control" id="fax">
                 </div>
             </div>
 
 
             <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" required>
+                <label for="email" class="form-label">Email <span>*</span></label>
+                <input type="email" name="email" class="form-control" id="email" required>
             </div>
 
             <div class="mb-3">
-                <label for="federalTaxId" class="form-label">Federal Tax ID</label>
-                <input type="text" class="form-control" id="federalTaxId" required>
+                <label for="federalTaxId" class="form-label">Federal Tax ID <span>*</span></label>
+                <input type="text" name="federal_tax_id" class="form-control" id="federalTaxId" required>
             </div>
 
             <div class="row mb-3">
-                <!-- Length of Ownership -->
                 <div class="col-md-6">
                     <label for="ownershipLength" class="form-label">Length of Ownership</label>
-                    <input type="text" class="form-control" id="ownershipLength" required>
+                    <input type="text" name="ownership_length" class="form-control" id="ownershipLength">
                 </div>
 
-                <!-- Date Started -->
                 <div class="col-md-6">
-                    <label for="dateStarted" class="form-label">Date Started</label>
-                    <input type="date" class="form-control" id="dateStarted" required>
+                    <label for="dateStarted" class="form-label">Date Started <span>*</span></label>
+                    <input type="date" name="date_started" class="form-control" id="dateStarted" required>
                 </div>
             </div>
 
 
             <div class="row mb-3">
-                <!-- Type of Entity -->
                 <div class="col-md-6">
-                    <label for="entityType" class="form-label">Type of Entity</label>
-                    <input type="text" class="form-control" id="entityType" required>
+                    <label for="entityType" class="form-label">Type of Entity <span>*</span></label>
+                    <input type="text" name="entity_type" class="form-control" id="entityType" required>
                 </div>
 
-                <!-- Type of Business -->
                 <div class="col-md-6">
-                    <label for="businessType" class="form-label">Type of Business</label>
-                    <input type="text" class="form-control" id="businessType" required>
+                    <label for="businessType" class="form-label">Type of Business <span>*</span></label>
+                    <input type="text" name="business_type" class="form-control" id="businessType" required>
                 </div>
             </div>
 
 
             <div class="mb-3">
                 <label for="productService" class="form-label">Product / Service Sold</label>
-                <input type="text" class="form-control" id="productService" required>
+                <input type="text" name="product_service" class="form-control" id="productService">
             </div>
 
             <div class="mb-3">
                 <label for="fundingCompany" class="form-label">Existing Funding Company and Balance</label>
-                <textarea class="form-control" id="fundingCompany" rows="3"></textarea>
+                <textarea class="form-control" name="funding_company" id="fundingCompany" rows="3"></textarea>
             </div>
 
-            <!-- Owner Information -->
             <h5>Merchant / Owner Information</h5>
 
             <div class="row mb-3">
-                <!-- Owner Name -->
                 <div class="col-md-6">
-                    <label for="ownerName" class="form-label">Owner Name</label>
-                    <input type="text" class="form-control" id="ownerName" required>
+                    <label for="ownerName" class="form-label">Owner Name <span>*</span></label>
+                    <input type="text" name="owner_name" class="form-control" id="ownerName" required>
                 </div>
 
-                <!-- Owner Title -->
                 <div class="col-md-6">
                     <label for="ownerTitle" class="form-label">Title</label>
-                    <input type="text" class="form-control" id="ownerTitle" required>
+                    <input type="text" name="owner_title" class="form-control" id="ownerTitle">
                 </div>
             </div>
 
 
             <div class="mb-3">
                 <label for="ownershipPercentage" class="form-label">Ownership %</label>
-                <input type="number" class="form-control" id="ownershipPercentage" required>
+                <input type="number" name="ownership_percentage" class="form-control" id="ownershipPercentage">
             </div>
 
             <div class="mb-3">
-                <label for="homeAddress" class="form-label">Home Address</label>
-                <input type="text" class="form-control" id="homeAddress" placeholder="Address Line" required>
+                <label for="homeAddress" class="form-label">Home Address <span>*</span></label>
+                <input type="text" name="home_address" class="form-control" id="homeAddress"
+                    placeholder="Address Line" required>
             </div>
 
             <div class="row mb-3">
-                <!-- Home City -->
                 <div class="col-md-4">
-                    <input type="text" class="form-control" id="homeCity" placeholder="City" required>
+                    <input type="text" name="home_city" class="form-control" id="homeCity" placeholder="City"
+                        required>
                 </div>
 
-                <!-- Home State -->
                 <div class="col-md-4">
-                    <select class="form-select" id="homeState" required>
+                    <select class="form-select" name="home_state" id="homeState" required>
                         <option selected>Select State</option>
                         <option value="1">State 1</option>
                         <option value="2">State 2</option>
                     </select>
                 </div>
 
-                <!-- Home Zip Code -->
                 <div class="col-md-4">
-                    <input type="text" class="form-control" id="homeZip" placeholder="Zip Code" required>
+                    <input type="text" name="home_zip" class="form-control" id="homeZip"
+                        placeholder="Zip Code" required>
                 </div>
             </div>
 
 
             <div class="row mb-3">
-                <!-- SSN -->
                 <div class="col-md-6">
-                    <label for="ssn" class="form-label">SSN</label>
-                    <input type="text" class="form-control" id="ssn" required>
+                    <label for="ssn" class="form-label">SSN <span>*</span></label>
+                    <input type="text" name="ssn" class="form-control" id="ssn" required>
                 </div>
 
-                <!-- Date of Birth -->
                 <div class="col-md-6">
-                    <label for="dob" class="form-label">Date of Birth</label>
-                    <input type="date" class="form-control" id="dob" required>
+                    <label for="dob" class="form-label">Date of Birth <span>*</span></label>
+                    <input type="date" name="dob" class="form-control" id="dob" required>
                 </div>
             </div>
 
 
             <div class="mb-3">
-                <label for="cellPhone" class="form-label">Cell Phone</label>
-                <input type="tel" class="form-control" id="cellPhone" required>
+                <label for="cellPhone" class="form-label">Cell Phone <span>*</span></label>
+                <input type="tel" name="cell_phone" class="form-control" id="cellPhone" required>
             </div>
 
-            <!-- Partner Information -->
             <h5>Partner Information (if applicable)</h5>
 
             <div class="row mb-3">
-                <!-- First Name -->
                 <div class="col-md-6">
                     <label for="partnerFirstName" class="form-label">First Name</label>
-                    <input type="text" class="form-control" id="partnerFirstName">
+                    <input type="text" name="partner_first_name" class="form-control" id="partnerFirstName">
                 </div>
 
-                <!-- Last Name -->
                 <div class="col-md-6">
                     <label for="partnerLastName" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" id="partnerLastName">
+                    <input type="text" name="partner_last_name" class="form-control" id="partnerLastName">
                 </div>
             </div>
 
 
             <div class="row mb-3">
-                <!-- Partner Title -->
                 <div class="col-md-6">
                     <label for="partnerTitle" class="form-label">Title</label>
-                    <input type="text" class="form-control" id="partnerTitle">
+                    <input type="text" name="partner_title" class="form-control" id="partnerTitle">
                 </div>
 
-                <!-- Ownership % -->
                 <div class="col-md-6">
                     <label for="partnerOwnership" class="form-label">Ownership %</label>
-                    <input type="number" class="form-control" id="partnerOwnership">
+                    <input type="number" name="partner_ownership" class="form-control" id="partnerOwnership">
                 </div>
             </div>
 
             <div class="mb-3">
                 <label for="partnerAddress" class="form-label">Partner Address</label>
-                <input type="text" class="form-control" id="partnerAddress">
+                <input type="text" name="partner_address" class="form-control" id="partnerAddress">
             </div>
             <div class="row mb-3">
-                <!-- City -->
                 <div class="col-md-4">
-                    <input type="text" class="form-control" id="partnerCity" placeholder="City" required>
+                    <input type="text" name="partner_city" class="form-control" id="partnerCity"
+                        placeholder="City">
                 </div>
 
-                <!-- State -->
                 <div class="col-md-4">
-                    <select class="form-select" id="partnerState" required>
+                    <select class="form-select" name="partner_state" id="partnerState">
                         <option selected>Select State</option>
                         <option value="1">State 1</option>
                         <option value="2">State 2</option>
                     </select>
                 </div>
 
-                <!-- Zip Code -->
                 <div class="col-md-4">
-                    <input type="text" class="form-control" id="partnerZipCode" placeholder="Zip Code" required>
+                    <input type="text" name="partner_zip" class="form-control" id="partnerZipCode"
+                        placeholder="Zip Code" required>
                 </div>
             </div>
 
             <div class="row mb-3">
-                <!-- Partner SSN -->
                 <div class="col-md-6">
                     <label for="partnerSSN" class="form-label">Partner SSN</label>
-                    <input type="text" class="form-control" id="partnerSSN">
+                    <input type="text" name="partner_ssn" class="form-control" id="partnerSSN">
                 </div>
 
-                <!-- Partner DOB -->
                 <div class="col-md-6">
                     <label for="partnerDOB" class="form-label">Partner DOB</label>
-                    <input type="date" class="form-control" id="partnerDOB">
+                    <input type="date" name="partner_dob" class="form-control" id="partnerDOB">
                 </div>
             </div>
 
 
             <div class="mb-3">
                 <label for="partnerPhone" class="form-label">Partner Phone</label>
-                <input type="tel" class="form-control" id="partnerPhone">
+                <input type="tel" name="partner_phone" class="form-control" id="partnerPhone">
             </div>
 
-            <!-- Business Property Information -->
             <h5>Business Property Information</h5>
 
             <div class="row mb-3">
-                <!-- Business Landlord or Business Mortgage Bank -->
                 <div class="col-md-6">
-                    <label for="landlordName" class="form-label">Business Landlord or Business Mortgage Bank</label>
-                    <input type="text" class="form-control" id="landlordName">
+                    <label for="landlord" class="form-label">Business Landlord or Business Mortgage Bank</label>
+                    <input type="text" name="landlord" class="form-control" id="landlord">
                 </div>
 
-                <!-- Name -->
                 <div class="col-md-6">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name">
+                    <label for="landLordName" class="form-label">Name</label>
+                    <input type="text" name="landlord_name" class="form-control" id="landLordName">
                 </div>
             </div>
 
 
             <div class="mb-3">
                 <label for="landlordPhone" class="form-label">Landlord Phone</label>
-                <input type="tel" class="form-control" id="landlordPhone">
+                <input type="tel" name="landlord_phone" class="form-control" id="landlordPhone">
             </div>
 
             <div class="mb-3">
@@ -333,13 +319,12 @@
             </div>
 
             <div class="row mb-3">
-                <!-- Owner Signature and Date -->
                 <div class="col-md-6">
-                    {{-- <label for="ownerSignature" class="form-label">Owner Signature</label>
-                    <input type="text" class="form-control" id="ownerSignature"> --}}
                     <div class="flex-row">
                         <div class="wrapper">
+                            {{-- <canvas id="owner-signature-pad" name="owner_signature" width="400" height="200"></canvas> --}}
                             <canvas id="owner-signature-pad" width="400" height="200"></canvas>
+                            <input type="hidden" name="owner_signature" id="owner_signature" />
                         </div>
                         <div class="clear-btn">
                             <button id="owner-clear"><span> Clear </span></button>
@@ -347,19 +332,21 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <label for="ownerSignatureDate" class="form-label">Date</label>
-                    <input type="date" class="form-control" id="ownerSignatureDate">
+                    <label for="ownerSignatureDate" class="form-label">Date <span>*</span></label>
+                    <input type="date" name="owner_signature_date" class="form-control" id="ownerSignatureDate"
+                        required>
                 </div>
             </div>
 
             <div class="row mb-3">
-                <!-- Partner Signature and Date -->
                 <div class="col-md-6">
-                    {{-- <label for="partnerSignature" class="form-label">Partner Signature</label>
-                    <input type="text" class="form-control" id="partnerSignature"> --}}
                     <div class="flex-row">
                         <div class="wrapper">
+                            {{-- <canvas id="signature-pad" name="partner_signature" width="400"
+                                height="200"></canvas> --}}
+                            <!-- Partner Signature Canvas -->
                             <canvas id="signature-pad" width="400" height="200"></canvas>
+                            <input type="hidden" name="partner_signature" id="partner_signature" />
                         </div>
                         <div class="clear-btn">
                             <button id="clear"><span> Clear </span></button>
@@ -368,22 +355,57 @@
                 </div>
                 <div class="col-md-6">
                     <label for="partnerSignatureDate" class="form-label">Date</label>
-                    <input type="date" class="form-control" id="partnerSignatureDate">
+                    <input type="date" name="partner_signature_date" class="form-control"
+                        id="partnerSignatureDate">
                 </div>
             </div>
 
 
-            <!-- Upload Files -->
             <div class="mb-3">
                 <label for="bankStatements" class="form-label">4 Months Bank Statements (Add Month to Date if
                     Available)</label>
-                <input type="file" class="form-control" id="bankStatements" multiple>
+                <input type="file" name="uploaded_bank_statements" class="form-control" id="bankStatements"
+                    multiple>
             </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
 
+    {{-- @dd("Hi") --}}
+    {{-- <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Owner signature pad setup
+            var ownerSignaturePad = new SignaturePad(document.getElementById('owner-signature-pad'));
+            var partnerSignaturePad = new SignaturePad(document.getElementById('signature-pad'));
+
+            // Handle form submission to capture signature data
+            document.querySelector('form').addEventListener('submit', function(e) {
+                // Check if the signature pad is empty
+                if (!ownerSignaturePad.isEmpty()) {
+                    // Set the hidden input value with the signature data (Base64)
+                    document.getElementById('owner_signature').value = ownerSignaturePad.toDataURL();
+                }
+
+                if (!partnerSignaturePad.isEmpty()) {
+                    document.getElementById('partner_signature').value = partnerSignaturePad
+                    .toDataURL();
+                }
+            });
+
+            // Clear button functionality for Owner Signature
+            document.getElementById('owner-clear').addEventListener('click', function() {
+                ownerSignaturePad.clear();
+                document.getElementById('owner_signature').value = ''; // Clear hidden input field
+            });
+
+            // Clear button functionality for Partner Signature
+            document.getElementById('clear').addEventListener('click', function() {
+                partnerSignaturePad.clear();
+                document.getElementById('partner_signature').value = ''; // Clear hidden input field
+            });
+        });
+    </script> --}}
 </body>
 
 </html>

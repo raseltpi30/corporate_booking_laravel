@@ -1,65 +1,111 @@
-// // resources/js/style.js
+
 
 // import SignaturePad from 'signature_pad';
 
-// var canvas = document.getElementById("signature-pad");
-
-// function resizeCanvas() {
+// // Function to handle resizing of canvas elements
+// function resizeCanvas(canvas) {
 //     var ratio = Math.max(window.devicePixelRatio || 1, 1);
 //     canvas.width = canvas.offsetWidth * ratio;
 //     canvas.height = canvas.offsetHeight * ratio;
 //     canvas.getContext("2d").scale(ratio, ratio);
 // }
 
-// window.onresize = resizeCanvas;
-// resizeCanvas();
+// // Resize for each canvas
+// window.onresize = function() {
+//     resizeCanvas(ownerCanvas);
+//     resizeCanvas(generalCanvas);
+// };
 
-// var signaturePad = new SignaturePad(canvas, {
-//     backgroundColor: 'rgb(250,250,250)'
+// // Initial resizing
+// var ownerCanvas = document.getElementById("owner-signature-pad");
+// var generalCanvas = document.getElementById("signature-pad");
+
+// resizeCanvas(ownerCanvas);
+// resizeCanvas(generalCanvas);
+
+// // Initialize SignaturePad for both canvas elements
+// var ownerSignaturePad = new SignaturePad(ownerCanvas, {
+//     backgroundColor: 'rgb(250, 250, 250)', // Optional background color
 // });
 
+// var generalSignaturePad = new SignaturePad(generalCanvas, {
+//     backgroundColor: 'rgb(250, 250, 250)', // Optional background color
+// });
+
+// // Clear owner signature pad
+// document.getElementById("owner-clear").addEventListener('click', function() {
+//     ownerSignaturePad.clear();
+// });
+
+// // Clear general signature pad
 // document.getElementById("clear").addEventListener('click', function() {
-//     signaturePad.clear();
+//     generalSignaturePad.clear();
 // });
+
 
 import SignaturePad from 'signature_pad';
 
-// Function to handle resizing of canvas elements
-function resizeCanvas(canvas) {
-    var ratio = Math.max(window.devicePixelRatio || 1, 1);
-    canvas.width = canvas.offsetWidth * ratio;
-    canvas.height = canvas.offsetHeight * ratio;
-    canvas.getContext("2d").scale(ratio, ratio);
-}
+document.addEventListener("DOMContentLoaded", function () {
+    // Initialize SignaturePad for owner and partner signature pads
+    var ownerCanvas = document.getElementById("owner-signature-pad");
+    var partnerCanvas = document.getElementById("signature-pad");
 
-// Resize for each canvas
-window.onresize = function() {
+    // Resize function to ensure proper canvas scaling on different devices
+    function resizeCanvas(canvas) {
+        var ratio = Math.max(window.devicePixelRatio || 1, 1);
+        canvas.width = canvas.offsetWidth * ratio;
+        canvas.height = canvas.offsetHeight * ratio;
+        canvas.getContext("2d").scale(ratio, ratio);
+    }
+
+    // Resize canvases initially and whenever window is resized
     resizeCanvas(ownerCanvas);
-    resizeCanvas(generalCanvas);
-};
+    resizeCanvas(partnerCanvas);
+    window.onresize = function () {
+        resizeCanvas(ownerCanvas);
+        resizeCanvas(partnerCanvas);
+    };
 
-// Initial resizing
-var ownerCanvas = document.getElementById("owner-signature-pad");
-var generalCanvas = document.getElementById("signature-pad");
+    // Initialize SignaturePad for both owner and partner signature pads
+    var ownerSignaturePad = new SignaturePad(ownerCanvas, {
+        backgroundColor: 'rgb(250, 250, 250)', // Optional: Set background color
+    });
 
-resizeCanvas(ownerCanvas);
-resizeCanvas(generalCanvas);
+    var partnerSignaturePad = new SignaturePad(partnerCanvas, {
+        backgroundColor: 'rgb(250, 250, 250)', // Optional: Set background color
+    });
 
-// Initialize SignaturePad for both canvas elements
-var ownerSignaturePad = new SignaturePad(ownerCanvas, {
-    backgroundColor: 'rgb(250, 250, 250)', // Optional background color
-});
+    // Handle form submission to capture signature data
+    document.querySelector('form').addEventListener('submit', function (e) {
+        // Check if the owner signature pad is not empty
+        if (!ownerSignaturePad.isEmpty()) {
+            // Set the hidden input value with the Base64 encoded signature data
+            document.getElementById('owner_signature').value = ownerSignaturePad.toDataURL();
+        } else {
+            alert("Please provide the owner signature.");
+            e.preventDefault(); // Prevent form submission
+            return;
+        }
 
-var generalSignaturePad = new SignaturePad(generalCanvas, {
-    backgroundColor: 'rgb(250, 250, 250)', // Optional background color
-});
+        // Check if the partner signature pad is not empty
+        if (!partnerSignaturePad.isEmpty()) {
+            document.getElementById('partner_signature').value = partnerSignaturePad.toDataURL();
+        } else {
+            alert("Please provide the partner signature.");
+            e.preventDefault(); // Prevent form submission
+            return;
+        }
+    });
 
-// Clear owner signature pad
-document.getElementById("owner-clear").addEventListener('click', function() {
-    ownerSignaturePad.clear();
-});
+    // Clear button functionality for Owner Signature pad
+    document.getElementById('owner-clear').addEventListener('click', function () {
+        ownerSignaturePad.clear();
+        document.getElementById('owner_signature').value = ''; // Clear hidden input field
+    });
 
-// Clear general signature pad
-document.getElementById("clear").addEventListener('click', function() {
-    generalSignaturePad.clear();
+    // Clear button functionality for Partner Signature pad
+    document.getElementById('clear').addEventListener('click', function () {
+        partnerSignaturePad.clear();
+        document.getElementById('partner_signature').value = ''; // Clear hidden input field
+    });
 });
