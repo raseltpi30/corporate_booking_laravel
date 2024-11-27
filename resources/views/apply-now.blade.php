@@ -17,8 +17,8 @@
         integrity="sha512-kw/nRM/BMR2XGArXnOoxKOO5VBHLdITAW00aG8qK4zBzcLVZ4nzg7/oYCaoiwc8U9zrnsO9UHqpyljJ8+iqYiQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     {{-- <script src="/resources/js/style.js"></script> --}}
-       <!-- Load the Vite JavaScript file -->
-       @vite(['resources/js/app.js'])
+    <!-- Load the Vite JavaScript file -->
+    @vite(['resources/js/app.js'])
 </head>
 
 <body>
@@ -335,16 +335,16 @@
             <div class="row mb-3">
                 <!-- Owner Signature and Date -->
                 <div class="col-md-6">
-                    <label for="ownerSignature" class="form-label">Owner Signature</label>
-                    <input type="text" class="form-control" id="ownerSignature">
-                    {{-- <div class="flex-row">
+                    {{-- <label for="ownerSignature" class="form-label">Owner Signature</label>
+                    <input type="text" class="form-control" id="ownerSignature"> --}}
+                    <div class="flex-row">
                         <div class="wrapper">
-                            <canvas id="signature-pad" width="400" height="200"></canvas>
+                            <canvas id="owner-signature-pad" width="400" height="200"></canvas>
                         </div>
                         <div class="clear-btn">
-                            <button id="clear"><span> Clear </span></button>
+                            <button id="owner-clear"><span> Clear </span></button>
                         </div>
-                     </div> --}}
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <label for="ownerSignatureDate" class="form-label">Date</label>
@@ -364,7 +364,7 @@
                         <div class="clear-btn">
                             <button id="clear"><span> Clear </span></button>
                         </div>
-                     </div>
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <label for="partnerSignatureDate" class="form-label">Date</label>
