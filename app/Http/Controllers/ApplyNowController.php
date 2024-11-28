@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\ApplyNow;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\BusinessApplicationMail;
 use App\Http\Requests\ApplyNowRequest;
 use Illuminate\Support\Facades\Storage;
 
@@ -12,7 +14,10 @@ class ApplyNowController extends Controller
 {
     public function index()
     {
-        // return view('apply-now');
+        $applyNows = ApplyNow::all();
+        return view('apply', [
+            'applyNows' => $applyNows
+        ]);
     }
 
     public function create()
@@ -24,79 +29,87 @@ class ApplyNowController extends Controller
     public function store(Request $request)
     // public function store(ApplyNowRequest $request)
     {
-        dd($request->all());
+        // dd($request->all());
         // Log::info($request->all());
 
-        // $request->validate([
-        //     'company_name' => 'required|string|max:255',
-        //     'dba' => 'string|max:255',
-        //     'db_number' => 'string|max:255',
-        //     'business_years' => 'in:yes,no',
-        //     'amount_requested' => 'numeric|min:0',
-        //     'business_address' => 'required|string|max:255',
-        //     'city' => 'required|string|max:255',
-        //     'state' => 'required|string|max:255', // You might want to use an enum or validation for valid states
-        //     'zip_code' => 'required|string|max:20',
-        //     'business_phone' => 'required|numeric', // You can use a custom phone validation or regex
-        //     'fax' => 'nullable|numeric',
-        //     'email' => 'required|email|max:255',
-        //     'federal_tax_id' => 'required|string|max:255',
-        //     'ownership_length' => 'string|max:255',
-        //     'date_started' => 'required|date',
-        //     'entity_type' => 'required|string|max:255',
-        //     'business_type' => 'required|string|max:255',
-        //     'product_service' => 'string|max:255',
-        //     'funding_company' => 'string|max:255',
-        //     'owner_name' => 'required|string|max:255',
-        //     'owner_title' => 'string|max:255',
-        //     'ownership_percentage' => 'numeric|min:0|max:100',
-        //     'home_address' => 'required|string|max:255',
-        //     'home_city' => 'required|string|max:255',
-        //     'home_state' => 'required|string|max:255', // You might want to use an enum or validation for valid states
-        //     'home_zip' => 'required|string|max:20',
-        //     'ssn' => 'required|string|max:11', // Assuming US SSN format
-        //     'dob' => 'required|date',
-        //     'cell_phone' => 'required|numeric',
-        //     'partner_first_name' => 'nullable|string|max:255',
-        //     'partner_last_name' => 'nullable|string|max:255',
-        //     'partner_title' => 'nullable|string|max:255',
-        //     'partner_ownership_percentage' => 'nullable|numeric|min:0|max:100',
-        //     'partner_address' => 'nullable|string|max:255',
-        //     'partner_city' => 'nullable|string|max:255',
-        //     'partner_state' => 'nullable|string|max:255',
-        //     'partner_zip_code' => 'nullable|string|max:20',
-        //     'partner_ssn' => 'nullable|string|max:11', // Assuming US SSN format
-        //     'partner_dob' => 'nullable|date',
-        //     'partner_phone' => 'nullable|numeric',
+        $fields = $request->validate([
+            'company_name' => 'required|string|max:255',
+            'dba' => 'string|max:255',
+            'db_number' => 'string|max:255',
+            'business_years' => 'in:yes,no',
+            'amount_requested' => 'numeric|min:0',
+            'business_address' => 'required|string|max:255',
+            'city' => 'required|string|max:255',
+            'state' => 'required|string|max:255',
+            'zip_code' => 'required|string|max:20',
 
-        //     'landlord' => 'nullable|string|max:255',
-        //     'landlord_name' => 'nullable|string|max:255',
-        //     'landlord_phone' => 'nullable|numeric',
+            'business_phone' => 'required|phone', // Problem some times
 
-        //     'owner_signature' => 'required|string', // For signature (store base64 or file path)
-        //     'owner_signature_date' => 'required|date',
+            'fax' => 'nullable|regex:/^(\+?\d{1,4}[-. ]?)?(\(?\d{1,5}\)?[-. ]?)?\d{1,4}[-. ]?\d{1,4}[-. ]?\d{1,4}$/',
+            'email' => 'required|email|max:255',
+            'federal_tax_id' => 'required|string|max:255',
+            'ownership_length' => 'string|max:255',
+            'date_started' => 'required|date',
+            'entity_type' => 'required|string|max:255',
+            'business_type' => 'required|string|max:255',
+            'product_service' => 'string|max:255',
 
-        //     'partner_signature' => 'nullable|string', // For signature (store base64 or file path)
-        //     'partner_signature_date' => 'nullable|date',
+            'funding_company' => 'string|max:255', // Problem some times
 
-        //     'uploaded_bank_statements.*' => 'file|mimes:pdf,jpeg,jpg,png|max:2048', // Validate file types and size
-        // ]);
-        Log::info($request->all());
+            'owner_name' => 'required|string|max:255',
+            'owner_title' => 'string|max:255',
+            'ownership_percentage' => 'numeric|min:0|max:100',
+            'home_address' => 'required|string|max:255',
+            'home_city' => 'required|string|max:255',
+            'home_state' => 'required|string|max:255', // You might want to use an enum or validation for valid states
+            'home_zip' => 'required|string|max:20',
+            'ssn' => 'required|regex:/^\d{3}-\d{2}-\d{4}$/',
+            'dob' => 'required|date',
 
-        // dd($request->all());
+            'cell_phone' => 'required|phone', // problem some times
 
+            'partner_first_name' => 'nullable|string|max:255',
+            'partner_last_name' => 'nullable|string|max:255',
+            'partner_title' => 'nullable|string|max:255',
+            'partner_ownership_percentage' => 'nullable|numeric|min:0|max:100',
+            'partner_address' => 'nullable|string|max:255',
+            'partner_city' => 'nullable|string|max:255',
+            'partner_state' => 'nullable|string|max:255',
 
+            'partner_zip_code' => 'nullable|string|max:20',
+            'partner_ssn' => 'nullable|string|max:11', // Assuming US SSN format
+            'partner_dob' => 'nullable|date',
+
+            'partner_phone' => 'nullable|phone', // problem some times
+
+            'landlord' => 'nullable|string|max:255',
+            'landlord_name' => 'nullable|string|max:255',
+            'landlord_phone' => 'nullable|phone',
+
+            'owner_signature' => 'required|string', // For signature (store base64 or file path)
+            'owner_signature_date' => 'required|date',
+
+            'partner_signature' => 'nullable|string', // For signature (store base64 or file path)
+            'partner_signature_date' => 'nullable|date',
+
+            'uploaded_bank_statements' => 'nullable|array',
+            'uploaded_bank_statements.*' => 'file|mimes:pdf,jpeg,jpg,png|max:2048',
+        ]);
+        // Log::info($fields);
+
+        // dd($fields);
 
         // Handle file uploads for bank statements
         $filePaths = [];
         if ($request->hasFile('uploaded_bank_statements')) {
             $files = $request->file('uploaded_bank_statements');
             foreach ($files as $file) {
+                // Store each uploaded file and store the path
                 $filePaths[] = $file->store('uploads/bank_statements', 'public');
             }
         }
 
-        // Handle base64 encoded signature
+        // Handle base64 encoded signature for the owner
         $ownerSignaturePath = null;
         if ($request->has('owner_signature')) {
             $ownerSignatureData = $request->owner_signature;
@@ -105,6 +118,7 @@ class ApplyNowController extends Controller
             Storage::disk('public')->put($ownerSignaturePath, base64_decode($imageData));
         }
 
+        // Handle base64 encoded signature for the partner (if provided)
         $partnerSignaturePath = null;
         if ($request->has('partner_signature')) {
             $partnerSignatureData = $request->partner_signature;
@@ -113,7 +127,7 @@ class ApplyNowController extends Controller
             Storage::disk('public')->put($partnerSignaturePath, base64_decode($imageData));
         }
 
-        // Create the business application record
+        // Create the business application record in the database
         $applyNow = ApplyNow::create([
             'company_name' => $request->company_name,
             'dba' => $request->dba,
@@ -165,7 +179,16 @@ class ApplyNowController extends Controller
             'uploaded_bank_statements' => !empty($filePaths) ? json_encode($filePaths) : null,
         ]);
 
-        // Redirect to success page or other appropriate action
-        return redirect()->route('business-application.success');
+        Mail::to('recipient@example.com')->send(new BusinessApplicationMail($applyNow));
+
+
+        return back()->with('success', 'Your application has been sent!');
+    }
+
+    public function show(ApplyNow $applyNow)
+    {
+        return view('apply-show', [
+            'applyNow' => $applyNow
+        ]);
     }
 }

@@ -71,7 +71,7 @@ return new class extends Migration
             $table->date('partner_signature_date')->nullable();
 
             // Upload Files
-            $table->string('uploaded_bank_statements')->nullable(); // You can store file paths or metadata here
+            $table->string('uploaded_bank_statements')->nullable();  // For multiple file paths as an array
 
             $table->timestamps();
         });

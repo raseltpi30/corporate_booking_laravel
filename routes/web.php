@@ -9,8 +9,11 @@ Route::get('/', function () {
 
 // Route::get('/apply-now', [ApplyNowController::class, 'index'])->name('apply.index');
 // Route::post('/', [ApplyNowController::class, 'store'])->name('apply.store');
+// In web.php (routes file)
 Route::controller(ApplyNowController::class)->prefix('apply-now')->group(function () {
     Route::get('/', 'index')->name('apply.index');
     Route::get('/create', 'create')->name('apply.create');
     Route::post('/', 'store')->name('apply.store');
+    Route::get('/show/{applyNow}', 'show')->name('apply.show');
 });
+
