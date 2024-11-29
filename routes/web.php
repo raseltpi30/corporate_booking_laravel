@@ -11,6 +11,9 @@ Route::get('/apply-now/create', [ApplyNowController::class, 'create'])->name('ap
 Route::post('/apply-now', [ApplyNowController::class, 'store'])->name('apply.store');
 // Route::post('/', [ApplyNowController::class, 'store'])->name('apply.store');
 // In web.php (routes file)
+Route::get('/privacy-policy', function () {
+    return view('privacy-policy');
+})->name('privacy-policy');
 
 
 

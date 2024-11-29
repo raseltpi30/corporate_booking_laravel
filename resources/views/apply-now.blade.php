@@ -10,6 +10,57 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
+        .navbar {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            /* Beautiful gradient */
+            border-bottom: 2px solid #0056b3;
+            color: white;
+        }
+
+        .navbar-nav .nav-link {
+            color: #ffffff;
+            font-weight: 600;
+            margin-right: 20px;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #f8f9fa;
+            text-decoration: none;
+        }
+
+        .navbar-brand img {
+            height: 50px;
+            /* Adjust the size of the logo */
+            width: 150px;
+        }
+
+        .navbar-nav .nav-link.active {
+            color: #ffd700;
+        }
+
+        /* Apply Now Button */
+        .apply-now-btn {
+            background-color: #ffd700;
+            color: #1a1a1a;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .apply-now-btn:hover {
+            background-color: #ffcc00;
+            color: #1a1a1a;
+            transform: scale(1.05);
+        }
+
         /* General Form and Error Styling */
         .form-label span {
             color: red;
@@ -74,9 +125,10 @@
             color: #555;
         }
 
-        .alert alert-success{
+        .alert alert-success {
             background-color: #5e72e4;
         }
+
         .card-body .row p {
             margin-bottom: 10px;
         }
@@ -142,6 +194,93 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent shadow-sm">
+        <div class="container">
+            <div class="d-flex justify-content-between w-100">
+                <div class="d-flex">
+                    <div class="contact-info me-4">
+                        <i class="bi bi-telephone"></i> +1 (914) 384-7924
+                    </div>
+                    <div class="contact-info">
+                        <i class="bi bi-envelope"></i> alex@vantagecapgroup.com
+                    </div>
+                </div>
+                {{-- <div class="d-flex align-items-center">
+                    <a class="nav-link apply-now-btn" href="{{ route('apply.create') }}">Apply Now</a>
+                </div> --}}
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+        <div class="container">
+            <!-- Brand Logo -->
+            <a class="navbar-brand" href="{{ url('/') }}">
+                <div class="brand-container">
+                    <img src="{{ asset('storage/logo/logo.jpg') }}" alt="Brand Logo">
+                    <!-- Logo Path from Laravel Storage -->
+                </div>
+            </a>
+
+            <!-- Hamburger Menu for Mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    {{-- <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ url('/') }}">Home</a>
+                    </li> --}}
+                    <!-- Add other navbar links if needed -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="container py-5">
+        <!-- Section Title -->
+        <div class="text-center mb-4">
+            <h2 class="display-4 font-weight-bold">BUSINESS LOANS and FINANCING</h2>
+            <p class="lead text-muted">Short-term Funding Solutions Designed with You in Mind</p>
+        </div>
+
+        <!-- Content Section -->
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <p class="mb-4">Every business has unique needs, and how the business owner decides to go about
+                    satisfying those needs depends largely on the business model and type. One variable that is constant
+                    for all businesses is the need for funds required for the business to grow or expand by taking on
+                    new opportunities.</p>
+
+                <p class="mb-4">Vantage Cap Group provides small businesses with the funds that they need to face the
+                    challenges of running a small business successfully.</p>
+
+                <p class="mb-4">Vantage Cap Group believes in giving business owners access to capital when they need
+                    it and as much as they need to sustain or grow their business. We understand that the traditional
+                    lending models are not designed for most small businesses, which leaves many businesses without any
+                    option to fund their businesses.</p>
+
+                <p class="mb-4">We pride ourselves on not using the lending model used by traditional loan sources. We
+                    prefer to call ours a business funding process. Forget about maxing out your credit cards and
+                    filling out a myriad of paperwork only to be declined by your bank.</p>
+
+                <p class="mb-4">With Vantage Cap Group, the process is simple. You apply, and our account
+                    representatives will take you through the process of getting funds for your business with our
+                    proprietary underwriting process. At Vantage Cap Group, we are not interested in what your business
+                    has done in the past; we are more interested in what your business can do.</p>
+
+                <!-- Call to Action -->
+                <div class="text-center">
+                    <p class="lead mb-4">Are you ready to take advantage of your business’s potential?</p>
+                    <a href="tel:510 340-9000" class="btn btn-lg btn-primary rounded-pill px-4 py-2">Call us now!</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <div class="container mt-5">
         <h2 class="text-center mb-4 text-primary">Business Application</h2>
 
@@ -164,26 +303,26 @@
                         <input type="text" name="company_name" value="{{ old('company_name') }}" class="form-control"
                             id="companyName" required>
                     </div>
-                    @if ($errors->has('company_name'))
-                        <div class="alert alert-danger">{{ $errors->first('partner_zip_code') }}</div>
-                    @endif
+                    @error('company_name')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label for="dba" class="form-label">DBA</label>
                             <input type="text" name="dba" value="{{ old('dba') }}" class="form-control"
                                 id="dba">
                         </div>
-                        @if ($errors->has('dba'))
-                            <div class="alert alert-danger">{{ $errors->first('dba') }}</div>
-                        @endif
+                        @error('dba')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                         <div class="col-md-6">
                             <label for="dbNumber" class="form-label">D&B Number</label>
                             <input type="text" name="db_number" value="{{ old('db_number') }}" class="form-control"
                                 id="dbNumber">
                         </div>
-                        @if ($errors->has('db_number'))
-                            <div class="alert alert-danger">{{ $errors->first('db_number') }}</div>
-                        @endif
+                        @error('db_number')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
 
 
@@ -210,6 +349,9 @@
                             <input type="number" name="amount_requested" value="{{ old('amount_requested') }}"
                                 class="form-control" id="amountRequested">
                         </div>
+                        @error('amount_requested')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <div class="mb-3">
@@ -217,12 +359,18 @@
                         <input type="text" name="business_address" value="{{ old('business_address') }}"
                             class="form-control" id="businessAddress" placeholder="Address Line" required>
                     </div>
+                    @error('business_address')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
 
                     <div class="row mb-3">
                         <div class="col-md-4">
                             <input type="text" name="city" value="{{ old('city') }}" class="form-control"
                                 id="city" placeholder="City" required>
                         </div>
+                        @error('city')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
 
                         <div class="col-md-4">
                             <select class="form-select" name="state" id="state" required>
@@ -235,11 +383,17 @@
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
+                        @error('state')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
 
                         <div class="col-md-4">
                             <input type="text" name="zip_code" value="{{ old('zip_code') }}"
                                 class="form-control" id="zipCode" placeholder="Zip Code" required>
                         </div>
+                        @error('zip_code')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
 
 
@@ -250,6 +404,9 @@
                                 value="{{ old('business_phone') }}" name="business_phone"
                                 placeholder="Enter phone number" required>
                         </div>
+                        @error('business_phone')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
 
 
                         <div class="col-md-6">
@@ -258,9 +415,7 @@
                                 name="fax" placeholder="Enter fax number">
                             <!-- Display error if validation fails -->
                             @error('fax')
-                                <div class="alert alert-danger mt-2">
-                                    {{ $message }}
-                                </div>
+                                <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
 
@@ -272,12 +427,18 @@
                         <input type="email" name="email" value="{{ old('email') }}" class="form-control"
                             id="email" required>
                     </div>
+                    @error('email')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
 
                     <div class="mb-3">
                         <label for="federalTaxId" class="form-label">Federal Tax ID <span>*</span></label>
                         <input type="text" name="federal_tax_id" value="{{ old('federal_tax_id') }}"
                             class="form-control" id="federalTaxId" required>
                     </div>
+                    @error('federal_tax_id')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
 
                     <div class="row mb-3">
                         <div class="col-md-6">
@@ -285,12 +446,18 @@
                             <input type="text" name="ownership_length" value="{{ old('ownership_length') }}"
                                 class="form-control" id="ownershipLength">
                         </div>
+                        @error('ownership_length')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
 
                         <div class="col-md-6">
                             <label for="dateStarted" class="form-label">Date Started <span>*</span></label>
                             <input type="date" name="date_started" value="{{ old('date_started') }}"
                                 class="form-control" id="dateStarted" required>
                         </div>
+                        @error('date_started')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
 
 
@@ -300,12 +467,18 @@
                             <input type="text" name="entity_type" value="{{ old('entity_type') }}"
                                 class="form-control" id="entityType" required>
                         </div>
+                        @error('entity_type')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
 
                         <div class="col-md-6">
                             <label for="businessType" class="form-label">Type of Business <span>*</span></label>
                             <input type="text" name="business_type" value="{{ old('business_type') }}"
                                 class="form-control" id="businessType" required>
                         </div>
+                        @error('business_type')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
 
 
@@ -314,6 +487,9 @@
                         <input type="text" name="product_service" value="{{ old('product_service') }}"
                             class="form-control" id="productService">
                     </div>
+                    @error('product_service')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
 
                     <div class="mb-3">
                         <label for="fundingCompany" class="form-label">Existing Funding Company and Balance</label>
@@ -322,6 +498,9 @@
                         <input type="text" name="funding_company" value="{{ old('funding_company') }}"
                             class="form-control" id="fundingCompany">
                     </div>
+                    @error('funding_company')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
 
                     <h5>Merchant / Owner Information</h5>
 
@@ -331,12 +510,18 @@
                             <input type="text" name="owner_name" value="{{ old('owner_name') }}"
                                 class="form-control" id="ownerName" required>
                         </div>
+                        @error('owner_name')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
 
                         <div class="col-md-6">
                             <label for="ownerTitle" class="form-label">Title</label>
                             <input type="text" name="owner_title" value="{{ old('owner_title') }}"
                                 class="form-control" id="ownerTitle">
                         </div>
+                        @error('owner_title')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
 
 
@@ -345,18 +530,27 @@
                         <input type="number" name="ownership_percentage" value="{{ old('ownership_percentage') }}"
                             class="form-control" id="ownershipPercentage">
                     </div>
+                    @error('ownership_percentage')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
 
                     <div class="mb-3">
                         <label for="homeAddress" class="form-label">Home Address <span>*</span></label>
                         <input type="text" name="home_address" value="{{ old('home_address') }}"
                             class="form-control" id="homeAddress" placeholder="Address Line" required>
                     </div>
+                    @error('home_address')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
 
                     <div class="row mb-3">
                         <div class="col-md-4">
                             <input type="text" name="home_city" value="{{ old('home_city') }}"
                                 class="form-control" id="homeCity" placeholder="City" required>
                         </div>
+                        @error('home_city')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
 
                         <div class="col-md-4">
                             <select class="form-select" name="home_state" id="state" required>
@@ -378,6 +572,9 @@
                                 class="form-control" id="homeZip" placeholder="Zip Code" required
                                 pattern="\d{5,10}">
                         </div>
+                        @error('home_zip')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
 
 
@@ -387,6 +584,9 @@
                             <input type="text" name="ssn" value="{{ old('ssn') }}" class="form-control"
                                 id="ssn" pattern="\d{3}-\d{2}-\d{4}" placeholder="XXX-XX-XXXX" required>
                         </div>
+                        @error('ssn')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
 
 
                         <div class="col-md-6">
@@ -394,6 +594,9 @@
                             <input type="date" name="dob" value="{{ old('dob') }}" class="form-control"
                                 id="dob" required>
                         </div>
+                        @error('dob')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
 
 
@@ -402,11 +605,9 @@
                         <input type="tel" value="{{ old('cell_phone') }}" class="form-control"
                             id="businessPhone" name="cell_phone" placeholder="Enter phone number" required>
                     </div>
-
-                    <!-- Display validation errors -->
-                    @if ($errors->has('cell_phone'))
-                        <div class="alert alert-danger">{{ $errors->first('cell_phone') }}</div>
-                    @endif
+                    @error('cell_phone')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
 
 
                     <h5>Partner Information (if applicable)</h5>
@@ -417,12 +618,18 @@
                             <input type="text" name="partner_first_name" value="{{ old('partner_first_name') }}"
                                 class="form-control" id="partnerFirstName">
                         </div>
+                        @error('partner_first_name')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
 
                         <div class="col-md-6">
                             <label for="partnerLastName" class="form-label">Last Name</label>
                             <input type="text" name="partner_last_name" value="{{ old('partner_last_name') }}"
                                 class="form-control" id="partnerLastName">
                         </div>
+                        @error('partner_last_name')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
 
 
@@ -432,6 +639,9 @@
                             <input type="text" name="partner_title" value="{{ old('partner_title') }}"
                                 class="form-control" id="partnerTitle">
                         </div>
+                        @error('partner_title')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
 
                         <div class="col-md-6">
                             <label for="partnerOwnership" class="form-label">Ownership %</label>
@@ -440,9 +650,9 @@
                                 id="partnerOwnership" min="0" max="100">
                         </div>
 
-                        @if ($errors->has('partner_ownership_percentage'))
-                            <div class="alert alert-danger">{{ $errors->first('partner_ownership_percentage') }}</div>
-                        @endif
+                        @error('partner_ownership_percentage')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
 
                     </div>
 
@@ -451,11 +661,17 @@
                         <input type="text" name="partner_address" value="{{ old('partner_address') }}"
                             class="form-control" id="partnerAddress">
                     </div>
+                    @error('partner_address')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
                     <div class="row mb-3">
                         <div class="col-md-4">
                             <input type="text" name="partner_city" value="{{ old('partner_city') }}"
                                 class="form-control" id="partnerCity" placeholder="City">
                         </div>
+                        @error('partner_city')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
 
                         <div class="col-md-4">
                             <select class="form-select" name="partner_state" id="state" required>
@@ -477,10 +693,9 @@
                             <input type="text" name="partner_zip_code" value="{{ old('partner_zip_code') }}"
                                 class="form-control" id="partnerZipCode" placeholder="Parent Zip Code" required>
                         </div>
-
-                        @if ($errors->has('partner_zip_code'))
-                            <div class="alert alert-danger">{{ $errors->first('partner_zip_code') }}</div>
-                        @endif
+                        @error('partner_zip_code')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <div class="row mb-3">
@@ -489,12 +704,18 @@
                             <input type="text" name="partner_ssn" value="{{ old('partner_ssn') }}"
                                 class="form-control" id="partnerSSN">
                         </div>
+                        @error('partner_ssn')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
 
                         <div class="col-md-6">
                             <label for="partnerDOB" class="form-label">Partner DOB</label>
                             <input type="date" name="partner_dob" value="{{ old('partner_dob') }}"
                                 class="form-control" id="partnerDOB">
                         </div>
+                        @error('partner_dob')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
 
 
@@ -506,6 +727,9 @@
                             value="{{ old('partner_phone') }}" name="partner_phone" placeholder="Enter phone number"
                             required>
                     </div>
+                    @error('partner_phone')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
 
                     <h5>Business Property Information</h5>
 
@@ -516,12 +740,18 @@
                             <input type="text" name="landlord" value="{{ old('landlord') }}"
                                 class="form-control" id="landlord">
                         </div>
+                        @error('landlord')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
 
                         <div class="col-md-6">
                             <label for="landLordName" class="form-label">Name</label>
                             <input type="text" name="landlord_name" value="{{ old('landlord_name') }}"
                                 class="form-control" id="landLordName">
                         </div>
+                        @error('landlord_name')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
 
 
@@ -530,6 +760,9 @@
                         <input type="tel" name="landlord_phone" value="{{ old('landlord_phone') }}"
                             class="form-control" id="landlordPhone">
                     </div>
+                    @error('landlord_phone')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
 
                     <div class="mb-3">
                         <p>Applicants authorize Vantage Capital Group, its assigns, agents, banks or financial
@@ -547,6 +780,9 @@
                                     <canvas id="owner-signature-pad" width="400" height="200"></canvas>
                                     <input type="hidden" name="owner_signature" id="owner_signature" />
                                 </div>
+                                @error('owner_signature')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
                                 <div class="clear-btn">
                                     <button id="owner-clear"><span> Clear </span></button>
                                 </div>
@@ -558,6 +794,9 @@
                                 value="{{ old('owner_signature_date') }}" class="form-control"
                                 id="ownerSignatureDate" required>
                         </div>
+                        @error('owner_signature_date')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <div class="row mb-3">
@@ -570,6 +809,9 @@
                                     <canvas id="signature-pad" width="400" height="200"></canvas>
                                     <input type="hidden" name="partner_signature" id="partner_signature" />
                                 </div>
+                                @error('partner_signature')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
                                 <div class="clear-btn">
                                     <button id="clear"><span> Clear </span></button>
                                 </div>
@@ -581,6 +823,9 @@
                                 value="{{ old('partner_signature_date') }}" class="form-control"
                                 id="partnerSignatureDate">
                         </div>
+                        @error('partner_signature_date')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
 
 
