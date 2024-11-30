@@ -347,67 +347,34 @@
         }
 
         /* Extra Small (xs) - max-width: 575.98px (portrait mobile) */
-            /* Extra Small (xs) - max-width: 575.98px (portrait mobile) */
-            @media (max-width: 575.98px) {
+        /* Extra Small (xs) - max-width: 575.98px (portrait mobile) */
+        @media (max-width: 575.98px) {
 
-                /* Top Navbar for Contact Info */
-                .navbar {
-                    padding: 10px 0;
-                }
-
-                /* Adjusting contact info for mobile */
-                .contact-info {
-                    font-size: 12px;
-                    margin-right: 10px;
-                }
-
-                /* Stack contact info vertically on mobile */
-                .navbar .d-flex {
-                    flex-direction: column;
-                    align-items: flex-start;
-                }
-
-                /* Apply Now Button (on mobile) */
-                .apply-now-btn {
-                    margin-top: 10px;
-                    width: 100%;
-                    text-align: center;
-                }
-
-                /* Main Navbar */
-                .navbar-expand-lg .navbar-nav {
-                    width: 100%;
-                    text-align: center;
-                }
-
-                .navbar-nav .nav-link {
-                    display: block;
-                    padding: 8px 0;
-                    margin-right: 0;
-                }
-
-                .navbar-nav .nav-link:hover {
-                    color: #ffd700;
-                    text-decoration: none;
-                }
-
-                /* Navbar brand and logo */
-                .navbar-brand img {
-                    width: 120px;
-                    /* smaller logo for mobile */
-                    height: auto;
-                    margin-bottom: 10px;
-                }
-
-                /* Navbar toggler */
-                .navbar-toggler {
-                    border-color: #ffd700;
-                }
-
-                .navbar-toggler-icon {
-                    background-color: #ffd700;
-                }
+            .apply-now-btn-2 {
+                background-color: #5e72e4;
+                color: white;
+                border: none;
+                padding: 33px;
+                border-radius: 50%;
+                font-size: 2.8rem;
+                font-weight: bold;
+                text-decoration: none;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                transition: background-color 0.3s ease, transform 0.3s ease;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                width: 65px;
+                height: 64px;
             }
+
+            .img-fluid {
+                max-width: 75%;
+                height: auto;
+            }
+
+        }
 
         /* Small (sm) - min-width: 576px and max-width: 767px (small devices like tablets in portrait mode) */
         @media (min-width: 576px) and (max-width: 767px) {}
