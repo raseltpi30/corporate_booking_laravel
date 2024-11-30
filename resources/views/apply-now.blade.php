@@ -9,179 +9,8 @@
     <link rel="stylesheet" href="/resources/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <style>
-        .navbar {
-            background: linear-gradient(to right, #6a11cb, #2575fc);
-            /* Beautiful gradient */
-            border-bottom: 2px solid #0056b3;
-            color: white;
-        }
-
-        .navbar-nav .nav-link {
-            color: #ffffff;
-            font-weight: 600;
-            margin-right: 20px;
-            font-size: 16px;
-            letter-spacing: 0.5px;
-            transition: color 0.3s ease;
-
-        }
-
-        .navbar-nav .nav-link:hover {
-            color: #f8f9fa;
-            text-decoration: none;
-        }
-
-        .navbar-brand img {
-            height: 50px;
-            /* Adjust the size of the logo */
-            width: 150px;
-        }
-
-        .navbar-nav .nav-link.active {
-            color: #ffd700;
-        }
-
-        /* Apply Now Button */
-        .apply-now-btn {
-            background-color: #ffd700;
-            color: #1a1a1a;
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-weight: bold;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .apply-now-btn:hover {
-            background-color: #ffcc00;
-            color: #1a1a1a;
-            transform: scale(1.05);
-        }
-
-        /* General Form and Error Styling */
-        .form-label span {
-            color: red;
-        }
-
-        .error-message {
-            color: red;
-            font-size: 0.875em;
-        }
-
-        /* Signature Canvas Styling */
-        .signature-canvas {
-            border: 1px solid #ccc;
-            background-color: #f8f9fa;
-            border-radius: 8px;
-        }
-
-        .signature-canvas-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .clear-btn button {
-            background-color: #dc3545;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .clear-btn button:hover {
-            background-color: #c82333;
-        }
-
-        /* Form Heading */
-        .form-heading {
-            margin-top: 30px;
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-        }
-
-        /* Custom Card Styling */
-        .card {
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
-        }
-
-        .card-header {
-            background-color: #5e72e4;
-            color: white;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 1.1rem;
-        }
-
-        .card-body p {
-            font-size: 1rem;
-            color: #555;
-        }
-
-        .alert alert-success {
-            background-color: #5e72e4;
-        }
-
-        .card-body .row p {
-            margin-bottom: 10px;
-        }
-
-        .card-title {
-            font-size: 1.25rem;
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        .btn-details {
-            font-size: 16px;
-            padding: 10px 20px;
-            border-radius: 30px;
-            background-color: #28a745;
-            color: white;
-            text-decoration: none;
-            margin-top: 20px;
-        }
-
-        .btn-details:hover {
-            background-color: #218838;
-            text-decoration: none;
-        }
-
-        .signature-image {
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 5px;
-        }
-
-        .additional-files ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .additional-files li {
-            margin-bottom: 10px;
-        }
-
-        .additional-files a {
-            color: #007bff;
-            text-decoration: none;
-        }
-
-        .additional-files a:hover {
-            text-decoration: underline;
-        }
-
-        .container {
-            max-width: 1100px;
-        }
-    </style>
+    <link rel="stylesheet" href="{{asset('/')}}website/assets/css/style2.css">
+    <link rel="stylesheet" href="{{asset('/')}}website/assets/css/style.css">
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
@@ -197,7 +26,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-transparent shadow-sm">
         <div class="container">
             <div class="d-flex justify-content-between w-100">
-                <div class="d-flex">
+                <div class="head-contact-menu">
                     <div class="contact-info me-4">
                         <i class="bi bi-telephone"></i> +1 (914) 384-7924
                     </div>
@@ -218,14 +47,15 @@
             <!-- Brand Logo -->
             <a class="navbar-brand" href="{{ url('/') }}">
                 <div class="brand-container">
-                    <img src="{{ asset('storage/logo/logo.jpg') }}" alt="Brand Logo">
+                    {{-- <img src="{{ asset('storage/logo/logo.jpg') }}" alt="Brand Logo"> --}}
+                    <img src="{{ asset('storage/logo/logo-removebg-preview.png') }}" alt="Brand Logo">
                     <!-- Logo Path from Laravel Storage -->
                 </div>
             </a>
 
             <!-- Hamburger Menu for Mobile -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -235,11 +65,23 @@
                     {{-- <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{ url('/') }}">Home</a>
                     </li> --}}
-                    <!-- Add other navbar links if needed -->
+                    {{-- <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li> --}}
                 </ul>
             </div>
         </div>
     </nav>
+
     <section class="container py-5">
         <!-- Section Title -->
         <div class="text-center mb-4">
@@ -249,7 +91,7 @@
 
         <!-- Content Section -->
         <div class="row">
-            <div class="col-lg-8 mx-auto">
+            <div class="col-lg-9 mx-auto">
                 <p class="mb-4">Every business has unique needs, and how the business owner decides to go about
                     satisfying those needs depends largely on the business model and type. One variable that is constant
                     for all businesses is the need for funds required for the business to grow or expand by taking on
@@ -281,7 +123,7 @@
         </div>
     </section>
 
-    <div class="container mt-5">
+    <div class="container py-5">
         <h2 class="text-center mb-4 text-primary">Business Application</h2>
 
         <div class="card">
