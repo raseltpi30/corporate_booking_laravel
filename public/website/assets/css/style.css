@@ -1,0 +1,96 @@
+.navbar {
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    /* Beautiful gradient */
+
+    color: white;
+}
+
+.top-nav {
+    border-bottom: 1px solid #0056b3;
+}
+.navbar-nav .nav-link {
+    color: #ffffff;
+    font-weight: 600;
+    margin-right: 20px;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+
+}
+
+.navbar-nav .nav-link:hover {
+    color: #f8f9fa;
+    text-decoration: none;
+}
+
+
+
+.brand-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-nav .nav-link.active {
+    color: #ffd700;
+}
+
+.navbar-toggler-icon {
+    background-color: transparent;
+}
+
+/* Styling for the navbar when collapsed on mobile */
+.navbar-collapse {
+    text-align: center;
+}
+
+/* Apply Now Button */
+.apply-now-btn {
+    background-color: #ffd700;
+    color: #1a1a1a;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    height: 40px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.apply-now-btn:hover {
+    background-color: #ffcc00;
+    color: #1a1a1a;
+    transform: scale(1.05);
+}
+.head-menu {
+    display: flex;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    align-items: center;
+}
+.head-contact-menu {
+    display: flex;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+    .head-contact-menu {
+        flex-direction: column !important;
+        text-align: justify !important;
+    }
+    .head-menu {
+        flex-direction: column !important;
+        align-items: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+
+    }
+
+    .contact-info {
+        width: 100%; /* Ensures full width if needed */
+        margin-bottom: 8px; /* Add spacing between items */
+        text-align: center; /* Align text properly */
+    }
+}

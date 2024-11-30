@@ -1,0 +1,152 @@
+
+.form-label span {
+    color: red;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.875em;
+}
+
+/* Signature Canvas Styling */
+.signature-canvas {
+    border: 1px solid #ccc;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.signature-canvas-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.clear-btn button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.clear-btn button:hover {
+    background-color: #c82333;
+}
+
+/* Form Heading */
+.form-heading {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+/* Custom Card Styling */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.card-header {
+    background-color: #5e72e4;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+}
+
+.card-body p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.alert alert-success {
+    background-color: #5e72e4;
+}
+
+.card-body .row p {
+    margin-bottom: 10px;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.btn-details {
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.btn-details:hover {
+    background-color: #218838;
+    text-decoration: none;
+}
+
+.signature-image {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.additional-files ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.additional-files li {
+    margin-bottom: 10px;
+}
+
+.additional-files a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.additional-files a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 1100px;
+}
+
+
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+
+    .container {
+        max-width: 980px;
+    }
+
+}
+
+@media only screen and (min-width: 452px) and (max-width: 768px){
+    .container {
+        max-width: 650px;
+    }
+
+}
+@media only screen and (min-width: 321px) and (max-width: 450px){
+    .container {
+        max-width: 350px;
+    }
+
+}
+
+
+@media only screen and (max-width: 320px) {
+    .container {
+        max-width: 300px;
+    }
+
+}
+
