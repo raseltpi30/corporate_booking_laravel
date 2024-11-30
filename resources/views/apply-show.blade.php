@@ -44,14 +44,15 @@
             font-size: 16px;
             padding: 10px 20px;
             border-radius: 30px;
-            background-color: #28a745;
+            background-color: #5e72e4;
             color: white;
             text-decoration: none;
             margin-top: 20px;
+            margin-bottom: 30px;
         }
 
         .btn-details:hover {
-            background-color: #218838;
+            background-color: cornflowerblue;
             text-decoration: none;
         }
 

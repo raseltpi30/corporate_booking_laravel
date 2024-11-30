@@ -159,9 +159,36 @@
             margin-bottom: 20px; /* Add some space below the header */
         }
 
-        .container {
-            max-width: 1200px;
+        .admin-list-container {
+            max-width: 1800px;
+            margin-left: 20px !important;
+            margin-right: 20px !important;
         }
+
+
+        @media only screen and (min-width: 1025px) and (max-width: 1199px) {
+
+            .admin-list-container {
+                max-width: 1700px;
+                margin-left: 10px !important;
+                margin-right: 10px !important;
+            }
+
+        }
+
+        @media (max-width: 768px) {
+            .table th:nth-child(2),
+            .table th:nth-child(3),
+            .table th:nth-child(4),
+            .table th:nth-child(5),
+            .table td:nth-child(2),
+            .table td:nth-child(3),
+            .table td:nth-child(4),
+            .table td:nth-child(5) {
+                display: none;
+            }
+        }
+
     </style>
 </head>
 
@@ -174,10 +201,10 @@
         </x-slot>
 
         <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="admin-list-layout mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
 
-                    <div class="container mt-5">
+                    <div class="admin-list-container mt-5 ">
                         <!-- Table -->
                         <div class="table-responsive">
                             <table class="table table-striped table-hover shadow rounded">
@@ -186,13 +213,8 @@
                                         <th scope="col">Company Name</th>
                                         <th scope="col">Business Phone</th>
                                         <th scope="col">Email</th>
-                                        <th scope="col">Federal Tax ID</th>
                                         <th scope="col">Date Started</th>
-                                        <th scope="col">Type of Entity</th>
-                                        <th scope="col">Type of Business</th>
                                         <th scope="col">Owner Name</th>
-                                        <th scope="col">Cell Phone</th>
-                                        <th scope="col">Date of Signature</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
@@ -202,16 +224,11 @@
                                             <td>{{ $apply->company_name }}</td>
                                             <td>{{ $apply->business_phone }}</td>
                                             <td>{{ $apply->email }}</td>
-                                            <td>{{ $apply->federal_tax_id }}</td>
                                             <td>{{ $apply->date_started }}</td>
-                                            <td>{{ $apply->entity_type }}</td>
-                                            <td>{{ $apply->business_type }}</td>
                                             <td>{{ $apply->owner_name }}</td>
-                                            <td>{{ $apply->cell_phone }}</td>
-                                            <td>{{ $apply->owner_signature_date }}</td>
                                             <td>
                                                 <a href="{{ url('/apply-now/show/' . $apply->id) }}"
-                                                    class="btn-details">View Details</a>
+                                                    class="btn-details">View</a>
                                             </td>
                                         </tr>
                                     @endforeach
