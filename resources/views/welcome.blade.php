@@ -250,10 +250,24 @@
             color: #FF5733
         }
 
-        /* Extra Small (xs) - max-width: 575.98px (portrait mobile) */
-        /* Extra Small (xs) - max-width: 575.98px (portrait mobile) */
-        @media (max-width: 575.98px) {
+        .img-quick {
+            width: 20%;
+            /* text-align: center; */
 
+            /* Adjust the width to make it smaller */
+            max-width: 150px;
+            /* Set a max-width for the images */
+            height: auto;
+            /* Maintain the aspect ratio */
+            display: block;
+            /* Make the image a block-level element */
+            margin: 0 auto;
+            /* Center the image horizontally */
+        }
+
+        /* Extra Small (xs) - max-width: 575.98px (portrait mobile) */
+        /* Extra Small (xs) - max-width: 575.98px (portrait mobile) */
+        @media (min-width: 320px) and (max-width: 480px) {
             .apply-now-btn-2 {
                 background-color: #5e72e4;
                 color: white;
@@ -276,6 +290,137 @@
             .img-fluid {
                 max-width: 75%;
                 height: auto;
+            }
+
+            .apply-now-btn {
+                background-color: #ffd700;
+                color: #1a1a1a;
+                padding: 6px 2px;
+                border-radius: 15px;
+                font-weight: bold;
+                text-decoration: none;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                transition: background-color 0.3s ease, transform 0.3s ease;
+            }
+
+            .card .row {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            .card .col-md-3 {
+                flex: 0 0 48%;
+                /* Adjusts the width to 48% (slightly less than 50% for spacing) */
+                max-width: 48%;
+                /* Ensures the column never exceeds 48% width */
+                margin-bottom: 20px;
+                /* Adds spacing between the rows */
+            }
+
+            .card .img-small {
+                width: 60%;
+                /* Ensures the image takes up the full width of its container */
+                height: auto;
+            }
+
+            /* For images, reduce the width and adjust max-width */
+            .img-quick {
+                width: 48%;
+                /* Adjust to show two images in one line */
+                max-width: 60px;
+                /* Reduce max-width for smaller screens */
+            }
+
+            /* For the grid columns, ensure two images per row */
+            .col-md-4 {
+                width: 48%;
+                /* Make columns take up 48% of the width */
+                margin-bottom: 10px;
+                /* Add some space between rows */
+            }
+
+            .need-card {
+                width: 100%;
+                height: 115vh;
+                background: rgba(241, 238, 238, 0.5);
+                padding-top: 30px;
+            }
+
+            .custom-section {
+                background-image: url(http://corporatelandingcenter.test/storage/logo/handshake.jpg);
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                padding: 30px 0;
+                height: 88ch;
+            }
+
+            .first-card {
+                width: 100%;
+                /* Make the card take full width */
+                height: 85vh;
+                /* Let the card's height adjust based on content */
+                background: rgba(0, 0, 0, 0.5);
+                /* Optional: Adds a semi-transparent overlay for readability */
+            }
+
+            .carousel-item img {
+                margin-top: 4%;
+                width: 25%;
+                margin-bottom: 54%;
+            }
+
+            .funding-specialist {
+                padding: 20px;
+                height: 25ch;
+                /* flex-direction: column; */
+            }
+
+            .funding-specialist h1 {
+                font-size: 18px;
+                /* Adjust font size for smaller screens */
+                margin: 5px 0;
+                /* Add margin between lines */
+                width: 100%;
+                /* Ensure h1 elements take the full width */
+                text-align: center;
+                /* Center text inside each h1 */
+                white-space: normal;
+                /* Allow text to wrap to the next line */
+            }
+
+            .last-section {
+
+                height: 125ch;
+            }
+
+            .last-card {
+                height: 122vh;
+            }
+
+            .card-body {
+                display: flex;
+                /* Use flexbox to stack items */
+                flex-direction: column;
+                /* Stack items vertically */
+            }
+
+            .title-footer {
+                width: 100%;
+                /* Each item takes full width */
+                margin-bottom: 10px;
+                /* Optional: Space between items */
+                text-align: center;
+            }
+
+            .hero-container .hero-text {
+                width: 95%;
+            }
+
+            .carousel-item .carousel-content {
+                height: 35ch;
             }
 
         }
@@ -501,7 +646,7 @@
 
     <section class="mt-5 custom-section">
         <div class="container-fluid">
-            <div class="card">
+            <div class="card first-card">
                 <div class="col-12">
                     <!-- Section Heading -->
                     <h2 class="text-white p-3 text-center">WHY PEOPLE CHOOSE US</h2>
@@ -509,21 +654,21 @@
                     <!-- Row for the first set of three cards -->
                     <div class="row justify-content-center">
                         <div class="col-md-4">
-                            <img class="card-img-top img-small" src="{{ asset('storage/logo/clockw.png') }}"
+                            <img class="card-img-top  img-quick" src="{{ asset('storage/logo/clockw.png') }}"
                                 alt="Card image cap">
                             <div class="card-body text-center">
                                 <h5 class="card-title-white">Quick & Easy</h5>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <img class="card-img-top img-small" src="{{ asset('storage/logo/cardw.png') }}"
+                            <img class="card-img-top  img-quick" src="{{ asset('storage/logo/cardw.png') }}"
                                 alt="Card image cap">
                             <div class="card-body text-center">
                                 <h5 class="card-title-white">Absolute Security</h5>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <img class="card-img-top img-small" src="{{ asset('storage/logo/thumbw.png') }}"
+                            <img class="card-img-top  img-quick" src="{{ asset('storage/logo/thumbw.png') }}"
                                 alt="Card image cap">
                             <div class="card-body text-center">
                                 <h5 class="card-title-white">Quick Approval</h5>
@@ -534,21 +679,21 @@
                     <!-- Row for the second set of three cards -->
                     <div class="row justify-content-center">
                         <div class="col-md-4">
-                            <img class="card-img-top img-small" src="{{ asset('storage/logo/signalw.png') }}"
+                            <img class="card-img-top  img-quick" src="{{ asset('storage/logo/signalw.png') }}"
                                 alt="Card image cap">
                             <div class="card-body text-center">
                                 <h5 class="card-title-white">Low Interest Rates</h5>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <img class="card-img-top img-small" src="{{ asset('storage/logo/securityw.png') }}"
+                            <img class="card-img-top  img-quick" src="{{ asset('storage/logo/securityw.png') }}"
                                 alt="Card image cap">
                             <div class="card-body text-center">
                                 <h5 class="card-title-white">Personal Security</h5>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <img class="card-img-top img-small" src="{{ asset('storage/logo/moneyw.png') }}"
+                        <div class="col-md-4 ">
+                            <img class="card-img-top img-quick" src="{{ asset('storage/logo/moneyw.png') }}"
                                 alt="Card image cap">
                             <div class="card-body text-center">
                                 <h5 class="card-title-white">Same Day Funding</h5>
@@ -581,7 +726,7 @@
                             <img src="{{ asset('storage/logo/coma.png') }}" class="d-block w-10" alt="...">
 
                             <!-- Caption/Text in the second line -->
-                            <div class="carousel-caption d-none d-md-block">
+                            <div class="carousel-caption d-md-block">
                                 <h5>First slide label</h5>
                                 <p>Some representative placeholder content for the first slide.</p>
                             </div>
@@ -690,12 +835,13 @@
                         <div class="row justify-content-left">
                             <div class="col-md-12">
                                 <div class="card-body text-left d-flex justify-content-between">
-                                    <h5 class="card-title-white">Terms of use</h5>
+                                    <h5 class="card-title-white title-footer">Terms of use</h5>
                                     <a href="{{ url('/privacy-policy') }}">
-                                        <h5 class="card-title-white">Privacy Policy</h5>
+                                        <h5 class="card-title-white title-footer">Privacy Policy</h5>
                                     </a>
-                                    <h5 class="card-title-white">Community</h5>
-                                    <h5 class="card-title-white">Copyright © 2024 All rights reserved | Developed By
+                                    <h5 class="card-title-white title-footer">Community</h5>
+                                    <h5 class="card-title-white title-footer">Copyright © 2024 All rights reserved |
+                                        Developed By
                                         SM_Technology</h5>
                                 </div>
                             </div>
