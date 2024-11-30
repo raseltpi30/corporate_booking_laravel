@@ -8,7 +8,7 @@
     <title>Navbar Example</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="{{asset('/')}}website/assets/css/style.css">
+    <link rel="stylesheet" href="{{ asset('/') }}website/assets/css/style.css">
     <style>
         /* Custom Styling for Navbar */
         body {
@@ -441,8 +441,8 @@
                 display: inline-flex;
                 justify-content: center;
                 align-items: center;
-                width: 65px;
-                height: 64px;
+                width: 85px;
+                height: 85px;
             }
 
             .img-fluid {
@@ -501,7 +501,7 @@
 
             .need-card {
                 width: 100%;
-                height: 115vh;
+                height: 123vh;
                 background: rgba(241, 238, 238, 0.5);
                 padding-top: 30px;
             }
@@ -525,7 +525,7 @@
             }
 
             .carousel-item img {
-                margin-top: 4%;
+                margin-top: 20%;
                 width: 25%;
                 margin-bottom: 54%;
             }
@@ -551,11 +551,168 @@
 
             .last-section {
 
-                height: 125ch;
+                height: 96ch;
+                ;
             }
 
             .last-card {
-                height: 122vh;
+                height: 94vh;
+            }
+
+            .card-body {
+                display: flex;
+                /* Use flexbox to stack items */
+                flex-direction: column;
+                /* Stack items vertically */
+            }
+
+            .title-footer {
+                width: 100%;
+                /* Each item takes full width */
+                margin-bottom: 10px;
+                /* Optional: Space between items */
+                text-align: center;
+            }
+
+            .hero-container .hero-text {
+                width: 95%;
+            }
+
+            .carousel-item .carousel-content {
+                height: 35ch;
+            }
+        }
+
+        @media (min-width: 481px) and (max-width: 575px) {
+            .apply-now-btn-2 {
+                background-color: #5e72e4;
+                color: white;
+                border: none;
+                padding: 33px;
+                border-radius: 50%;
+                font-size: 0.8rem;
+                font-weight: bold;
+                text-decoration: none;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                transition: background-color 0.3s ease, transform 0.3s ease;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                width: 100px;
+                height: 100px;
+            }
+
+            .img-fluid {
+                max-width: 75%;
+                height: auto;
+            }
+
+            .apply-now-btn {
+                background-color: #ffd700;
+                color: #1a1a1a;
+                padding: 6px 2px;
+                border-radius: 15px;
+                font-weight: bold;
+                text-decoration: none;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                transition: background-color 0.3s ease, transform 0.3s ease;
+            }
+
+            .card .row {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            .card .col-md-3 {
+                flex: 0 0 48%;
+                /* Adjusts the width to 48% (slightly less than 50% for spacing) */
+                max-width: 48%;
+                /* Ensures the column never exceeds 48% width */
+                margin-bottom: 20px;
+                /* Adds spacing between the rows */
+            }
+
+            .card .img-small {
+                width: 60%;
+                /* Ensures the image takes up the full width of its container */
+                height: auto;
+            }
+
+            /* For images, reduce the width and adjust max-width */
+            .img-quick {
+                width: 48%;
+                /* Adjust to show two images in one line */
+                max-width: 60px;
+                /* Reduce max-width for smaller screens */
+            }
+
+            /* For the grid columns, ensure two images per row */
+            .col-md-4 {
+                width: 48%;
+                /* Make columns take up 48% of the width */
+                margin-bottom: 10px;
+                /* Add some space between rows */
+            }
+
+            .need-card {
+                width: 100%;
+                height: 130vh;
+                background: rgba(241, 238, 238, 0.5);
+                padding-top: 30px;
+            }
+
+            .custom-section {
+                background-image: url(http://corporatelandingcenter.test/storage/logo/handshake.jpg);
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                padding: 30px 0;
+                height: 88ch;
+            }
+
+            .first-card {
+                width: 100%;
+                /* Make the card take full width */
+                height: 85vh;
+                /* Let the card's height adjust based on content */
+                background: rgba(0, 0, 0, 0.5);
+                /* Optional: Adds a semi-transparent overlay for readability */
+            }
+
+            .carousel-item img {
+                margin-top: 25%;
+                width: 25%;
+                margin-bottom: 54%;
+            }
+
+            .funding-specialist {
+                padding: 20px;
+                height: 25ch;
+                /* flex-direction: column; */
+            }
+
+            .funding-specialist h1 {
+                font-size: 18px;
+                /* Adjust font size for smaller screens */
+                margin: 5px 0;
+                /* Add margin between lines */
+                width: 100%;
+                /* Ensure h1 elements take the full width */
+                text-align: center;
+                /* Center text inside each h1 */
+                white-space: normal;
+                /* Allow text to wrap to the next line */
+            }
+
+            .last-section {
+                height: 85ch;
+            }
+
+            .last-card {
+                height: 81vh;
             }
 
             .card-body {
@@ -583,10 +740,315 @@
         }
 
         /* Small (sm) - min-width: 576px and max-width: 767px (small devices like tablets in portrait mode) */
-        @media (min-width: 576px) and (max-width: 767px) {}
+        @media (min-width: 576px) and (max-width: 767px) {
+            .apply-now-btn-2 {
+                background-color: #5e72e4;
+                color: white;
+                border: none;
+                padding: 33px;
+                border-radius: 50%;
+                font-size: 0.8rem;
+                font-weight: bold;
+                text-decoration: none;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                transition: background-color 0.3s ease, transform 0.3s ease;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                width: 120px;
+                height: 120px;
+            }
+
+            .img-fluid {
+                max-width: 75%;
+                height: auto;
+            }
+
+            .apply-now-btn {
+                background-color: #ffd700;
+                color: #1a1a1a;
+                padding: 6px 2px;
+                border-radius: 15px;
+                font-weight: bold;
+                text-decoration: none;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                transition: background-color 0.3s ease, transform 0.3s ease;
+            }
+
+            .card .row {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            .card .col-md-3 {
+                flex: 0 0 48%;
+                /* Adjusts the width to 48% (slightly less than 50% for spacing) */
+                max-width: 48%;
+                /* Ensures the column never exceeds 48% width */
+                margin-bottom: 20px;
+                /* Adds spacing between the rows */
+            }
+
+            .card .img-small {
+                width: 60%;
+                /* Ensures the image takes up the full width of its container */
+                height: auto;
+            }
+
+            /* For images, reduce the width and adjust max-width */
+            .img-quick {
+                width: 48%;
+                /* Adjust to show two images in one line */
+                max-width: 60px;
+                /* Reduce max-width for smaller screens */
+            }
+
+            /* For the grid columns, ensure two images per row */
+            .col-md-4 {
+                width: 48%;
+                /* Make columns take up 48% of the width */
+                margin-bottom: 10px;
+                /* Add some space between rows */
+            }
+
+            .need-card {
+                width: 100%;
+                height: 125vh;
+                background: rgba(241, 238, 238, 0.5);
+                padding-top: 30px;
+            }
+
+            .custom-section {
+                background-image: url(http://corporatelandingcenter.test/storage/logo/handshake.jpg);
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                padding: 30px 0;
+                height: 88ch;
+            }
+
+            .first-card {
+                width: 100%;
+                /* Make the card take full width */
+                height: 85vh;
+                /* Let the card's height adjust based on content */
+                background: rgba(0, 0, 0, 0.5);
+                /* Optional: Adds a semi-transparent overlay for readability */
+            }
+
+            .carousel-item img {
+                margin-top: 39%;
+                width: 19%;
+                margin-bottom: 54%;
+            }
+
+            .funding-specialist {
+                padding: 20px;
+                height: 25ch;
+                /* flex-direction: column; */
+            }
+
+            .funding-specialist h1 {
+                font-size: 18px;
+                /* Adjust font size for smaller screens */
+                margin: 5px 0;
+                /* Add margin between lines */
+                width: 100%;
+                /* Ensure h1 elements take the full width */
+                text-align: center;
+                /* Center text inside each h1 */
+                white-space: normal;
+                /* Allow text to wrap to the next line */
+            }
+
+            .last-section {
+                height: 85ch;
+            }
+
+            .last-card {
+                height: 81vh;
+            }
+
+            .card-body {
+                display: flex;
+                /* Use flexbox to stack items */
+                flex-direction: column;
+                /* Stack items vertically */
+            }
+
+            .title-footer {
+                width: 100%;
+                /* Each item takes full width */
+                margin-bottom: 10px;
+                /* Optional: Space between items */
+                text-align: center;
+            }
+
+            .hero-container .hero-text {
+                width: 95%;
+            }
+
+            .carousel-item .carousel-content {
+                height: 35ch;
+            }
+        }
 
         /* Medium (md) - min-width: 768px and max-width: 991px (tablets and small laptops) */
-        @media (min-width: 768px) and (max-width: 991px) {}
+        @media (min-width: 768px) and (max-width: 991px) {
+            .apply-now-btn-2 {
+                background-color: #5e72e4;
+                color: white;
+                border: none;
+                padding: 33px;
+                border-radius: 50%;
+                font-size: 0.8rem;
+                font-weight: bold;
+                text-decoration: none;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                transition: background-color 0.3s ease, transform 0.3s ease;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                width: 150px;
+                height: 150px;
+            }
+
+            .img-fluid {
+                max-width: 75%;
+                height: auto;
+            }
+
+            .apply-now-btn {
+                background-color: #ffd700;
+                color: #1a1a1a;
+                padding: 6px 2px;
+                border-radius: 15px;
+                font-weight: bold;
+                text-decoration: none;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                transition: background-color 0.3s ease, transform 0.3s ease;
+            }
+
+            .card .row {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            .card .col-md-3 {
+                flex: 0 0 48%;
+                /* Adjusts the width to 48% (slightly less than 50% for spacing) */
+                max-width: 48%;
+                /* Ensures the column never exceeds 48% width */
+                margin-bottom: 20px;
+                /* Adds spacing between the rows */
+            }
+
+            .card .img-small {
+                width: 60%;
+                /* Ensures the image takes up the full width of its container */
+                height: auto;
+            }
+
+            /* For images, reduce the width and adjust max-width */
+            .img-quick {
+                width: 48%;
+                /* Adjust to show two images in one line */
+                max-width: 60px;
+                /* Reduce max-width for smaller screens */
+            }
+
+            /* For the grid columns, ensure two images per row */
+            .col-md-4 {
+                width: 48%;
+                /* Make columns take up 48% of the width */
+                margin-bottom: 10px;
+                /* Add some space between rows */
+            }
+
+            .need-card {
+                width: 100%;
+                height: 125vh;
+                background: rgba(241, 238, 238, 0.5);
+                padding-top: 30px;
+            }
+
+            .custom-section {
+                background-image: url(http://corporatelandingcenter.test/storage/logo/handshake.jpg);
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                padding: 30px 0;
+                height: 72ch;
+            }
+
+            .first-card {
+                width: 100%;
+                height: 69vh;
+                background: rgba(0, 0, 0, 0.5);
+            }
+
+            .carousel-item img {
+                margin-top: 39%;
+                width: 19%;
+                margin-bottom: 54%;
+            }
+
+            .funding-specialist {
+                padding: 20px;
+                height: 25ch;
+                /* flex-direction: column; */
+            }
+
+            .funding-specialist h1 {
+                font-size: 18px;
+                /* Adjust font size for smaller screens */
+                margin: 5px 0;
+                /* Add margin between lines */
+                width: 100%;
+                /* Ensure h1 elements take the full width */
+                text-align: center;
+                /* Center text inside each h1 */
+                white-space: normal;
+                /* Allow text to wrap to the next line */
+            }
+
+            .last-section {
+                height: 81ch;
+            }
+
+            .last-card {
+                height: 77vh;
+            }
+
+            .card-body {
+                display: flex;
+                /* Use flexbox to stack items */
+                flex-direction: column;
+                /* Stack items vertically */
+            }
+
+            .title-footer {
+                width: 100%;
+                /* Each item takes full width */
+                margin-bottom: 10px;
+                /* Optional: Space between items */
+                text-align: center;
+            }
+
+            .hero-container .hero-text {
+                width: 95%;
+            }
+
+            .carousel-item .carousel-content {
+                height: 35ch;
+            }
+        }
 
         /* Large (lg) - min-width: 992px and max-width: 1199px (laptops and desktops) */
         @media (min-width: 992px) and (max-width: 1199px) {
@@ -594,6 +1056,16 @@
 
             .hero-container .hero-text {
                 width: 100%;
+            }
+
+            .img-fluid {
+                max-width: 75%;
+                height: auto;
+            }
+
+            .apply-now-btn-2 {
+                width: 210px;
+                height: 210px;
             }
         }
     </style>
@@ -666,7 +1138,7 @@
                 @auth
                     <a href="{{ url('/apply-now') }}"
                         class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
-                        Dashboard
+                        Apply Now
                     </a>
                 @else
                     <a href="{{ route('login') }}"
