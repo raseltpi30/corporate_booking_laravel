@@ -1,1 +1,1 @@
-<img src="{{ asset('storage/logo/logo2.png') }}" alt="Brand Logo">
+<img src="{{ asset('assets/logo/logo2.png') }}" alt="Brandsdafgsaf Logo">

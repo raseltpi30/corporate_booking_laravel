@@ -32,69 +32,69 @@ class ApplyNowController extends Controller
         // dd($request->all());
         // Log::info($request->all());
 
-        $fields = $request->validate([
-            'company_name' => 'required|string|max:255',
-            'dba' => 'string|max:255',
-            'db_number' => 'string|max:255',
-            'business_years' => 'in:yes,no',
-            'amount_requested' => 'numeric|min:0',
-            'business_address' => 'required|string|max:255',
-            'city' => 'required|string|max:255',
-            'state' => 'required|string|max:255',
-            'zip_code' => 'required|string|max:20',
+        // $fields = $request->validate([
+        //     'company_name' => 'required|string|max:255',
+        //     'dba' => 'string|max:255',
+        //     'db_number' => 'string|max:255',
+        //     'business_years' => 'in:yes,no',
+        //     'amount_requested' => 'numeric|min:0',
+        //     'business_address' => 'required|string|max:255',
+        //     'city' => 'required|string|max:255',
+        //     'state' => 'required|string|max:255',
+        //     'zip_code' => 'required|string|max:20',
 
-            'business_phone' => 'required|phone', // Problem some times
+        //     'business_phone' => 'required|phone', // Problem some times
 
-            'fax' => 'nullable|regex:/^(\+?\d{1,4}[-. ]?)?(\(?\d{1,5}\)?[-. ]?)?\d{1,4}[-. ]?\d{1,4}[-. ]?\d{1,4}$/',
-            'email' => 'required|email|max:255',
-            'federal_tax_id' => 'required|string|max:255',
-            'ownership_length' => 'string|max:255',
-            'date_started' => 'required|date',
-            'entity_type' => 'required|string|max:255',
-            'business_type' => 'required|string|max:255',
-            'product_service' => 'string|max:255',
+        //     'fax' => 'nullable|regex:/^(\+?\d{1,4}[-. ]?)?(\(?\d{1,5}\)?[-. ]?)?\d{1,4}[-. ]?\d{1,4}[-. ]?\d{1,4}$/',
+        //     'email' => 'required|email|max:255',
+        //     'federal_tax_id' => 'required|string|max:255',
+        //     'ownership_length' => 'string|max:255',
+        //     'date_started' => 'required|date',
+        //     'entity_type' => 'required|string|max:255',
+        //     'business_type' => 'required|string|max:255',
+        //     'product_service' => 'string|max:255',
 
-            'funding_company' => 'string|max:255', // Problem some times
+        //     'funding_company' => 'string|max:255', // Problem some times
 
-            'owner_name' => 'required|string|max:255',
-            'owner_title' => 'string|max:255',
-            'ownership_percentage' => 'numeric|min:0|max:100',
-            'home_address' => 'required|string|max:255',
-            'home_city' => 'required|string|max:255',
-            'home_state' => 'required|string|max:255', // You might want to use an enum or validation for valid states
-            'home_zip' => 'required|string|max:20',
-            'ssn' => 'required|regex:/^\d{3}-\d{2}-\d{4}$/',
-            'dob' => 'required|date',
+        //     'owner_name' => 'required|string|max:255',
+        //     'owner_title' => 'string|max:255',
+        //     'ownership_percentage' => 'numeric|min:0|max:100',
+        //     'home_address' => 'required|string|max:255',
+        //     'home_city' => 'required|string|max:255',
+        //     'home_state' => 'required|string|max:255', // You might want to use an enum or validation for valid states
+        //     'home_zip' => 'required|string|max:20',
+        //     'ssn' => 'required|regex:/^\d{3}-\d{2}-\d{4}$/',
+        //     'dob' => 'required|date',
 
-            'cell_phone' => 'required|phone', // problem some times
+        //     'cell_phone' => 'required|phone', // problem some times
 
-            'partner_first_name' => 'nullable|string|max:255',
-            'partner_last_name' => 'nullable|string|max:255',
-            'partner_title' => 'nullable|string|max:255',
-            'partner_ownership_percentage' => 'nullable|numeric|min:0|max:100',
-            'partner_address' => 'nullable|string|max:255',
-            'partner_city' => 'nullable|string|max:255',
-            'partner_state' => 'nullable|string|max:255',
+        //     'partner_first_name' => 'nullable|string|max:255',
+        //     'partner_last_name' => 'nullable|string|max:255',
+        //     'partner_title' => 'nullable|string|max:255',
+        //     'partner_ownership_percentage' => 'nullable|numeric|min:0|max:100',
+        //     'partner_address' => 'nullable|string|max:255',
+        //     'partner_city' => 'nullable|string|max:255',
+        //     'partner_state' => 'nullable|string|max:255',
 
-            'partner_zip_code' => 'nullable|string|max:20',
-            'partner_ssn' => 'nullable|string|max:11', // Assuming US SSN format
-            'partner_dob' => 'nullable|date',
+        //     'partner_zip_code' => 'nullable|string|max:20',
+        //     'partner_ssn' => 'nullable|string|max:11', // Assuming US SSN format
+        //     'partner_dob' => 'nullable|date',
 
-            'partner_phone' => 'nullable|phone', // problem some times
+        //     'partner_phone' => 'nullable|phone', // problem some times
 
-            'landlord' => 'nullable|string|max:255',
-            'landlord_name' => 'nullable|string|max:255',
-            'landlord_phone' => 'nullable|phone',
+        //     'landlord' => 'nullable|string|max:255',
+        //     'landlord_name' => 'nullable|string|max:255',
+        //     'landlord_phone' => 'nullable|phone',
 
-            'owner_signature' => 'required|string', // For signature (store base64 or file path)
-            'owner_signature_date' => 'required|date',
+        //     'owner_signature' => 'required|string', // For signature (store base64 or file path)
+        //     'owner_signature_date' => 'required|date',
 
-            'partner_signature' => 'nullable|string', // For signature (store base64 or file path)
-            'partner_signature_date' => 'nullable|date',
+        //     'partner_signature' => 'nullable|string', // For signature (store base64 or file path)
+        //     'partner_signature_date' => 'nullable|date',
 
-            'uploaded_bank_statements' => 'nullable|array',
-            'uploaded_bank_statements.*' => 'file|mimes:pdf,jpeg,jpg,png|max:2048',
-        ]);
+        //     'uploaded_bank_statements' => 'nullable|array',
+        //     'uploaded_bank_statements.*' => 'file|mimes:pdf,jpeg,jpg,png|max:2048',
+        // ]);
         // Log::info($fields);
 
         // dd($fields);
@@ -104,8 +104,23 @@ class ApplyNowController extends Controller
         if ($request->hasFile('uploaded_bank_statements')) {
             $files = $request->file('uploaded_bank_statements');
             foreach ($files as $file) {
-                // Store each uploaded file and store the path
-                $filePaths[] = $file->store('uploads/bank_statements', 'public');
+                // Initialize the array to store file paths
+                // Define the destination path in the public folder
+                $destinationPath = public_path('uploads/bank_statements');
+
+                // Ensure the destination directory exists, create it if it doesn't
+                if (!file_exists($destinationPath)) {
+                    mkdir($destinationPath, 0777, true);
+                }
+
+                // Get the original file name
+                $originalFileName = $file->getClientOriginalName();
+
+                // Move the uploaded file to the destination path
+                $file->move($destinationPath, $originalFileName);
+
+                // Add the relative file path to the array (so it can be used later)
+                $filePaths[] = 'uploads/bank_statements/' . $originalFileName;
             }
         }
 
@@ -114,8 +129,9 @@ class ApplyNowController extends Controller
         if ($request->has('owner_signature')) {
             $ownerSignatureData = $request->owner_signature;
             $imageData = explode(',', $ownerSignatureData)[1]; // Get base64 part
-            $ownerSignaturePath = 'signatures/' . uniqid('owner_') . '.png';
-            Storage::disk('public')->put($ownerSignaturePath, base64_decode($imageData));
+            $ownerSignaturePath = 'uploads/signatures/' . uniqid('owner_') . '.png';
+            // Store the signature in the public folder
+            file_put_contents(public_path($ownerSignaturePath), base64_decode($imageData));
         }
 
         // Handle base64 encoded signature for the partner (if provided)
@@ -123,9 +139,11 @@ class ApplyNowController extends Controller
         if ($request->has('partner_signature')) {
             $partnerSignatureData = $request->partner_signature;
             $imageData = explode(',', $partnerSignatureData)[1]; // Get base64 part
-            $partnerSignaturePath = 'signatures/' . uniqid('partner_') . '.png';
-            Storage::disk('public')->put($partnerSignaturePath, base64_decode($imageData));
+            $partnerSignaturePath = 'uploads/signatures/' . uniqid('partner_') . '.png';
+            // Store the signature in the public folder
+            file_put_contents(public_path($partnerSignaturePath), base64_decode($imageData));
         }
+
 
         // Create the business application record in the database
         $applyNow = ApplyNow::create([

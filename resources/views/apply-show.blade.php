@@ -158,12 +158,12 @@
                 </div>
                 <div class="card-body">
                     <p><strong>Owner Signature:</strong>
-                        <img src="{{ asset('storage/' . $applyNow->owner_signature) }}" alt="Owner Signature"
+                        <img src="{{ asset($applyNow->owner_signature) }}" alt="Owner Signature"
                             width="150" class="signature-image">
                     </p>
                     <p><strong>Partner Signature:</strong>
                         @if ($applyNow->partner_signature)
-                            <img src="{{ asset('storage/' . $applyNow->partner_signature) }}" alt="Partner Signature"
+                            <img src="{{ asset($applyNow->partner_signature) }}" alt="Partner Signature"
                                 width="150" class="signature-image">
                         @else
                             No signature available
@@ -180,7 +180,7 @@
                     @if ($applyNow->uploaded_bank_statements)
                         <ul>
                             @foreach (json_decode($applyNow->uploaded_bank_statements) as $file)
-                                <li><a href="{{ asset('storage/' . $file) }}" target="_blank">{{ basename($file) }}</a>
+                                <li><a href="{{ asset($file) }}" target="_blank">{{ basename($file) }}</a>
                                 </li>
                             @endforeach
                         </ul>

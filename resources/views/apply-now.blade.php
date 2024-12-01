@@ -49,8 +49,8 @@
             <!-- Brand Logo -->
             <a class="navbar-brand" href="{{ url('/') }}">
                 <div class="brand-container">
-                    {{-- <img src="{{ asset('storage/logo/logo.jpg') }}" alt="Brand Logo"> --}}
-                    <img src="{{ asset('storage/logo/logo-removebg-preview.png') }}" alt="Brand Logo">
+                    {{-- <img src="{{ asset('assets/logo/logo.jpg') }}" alt="Brand Logo"> --}}
+                    <img src="{{ asset('assets/logo/logo-removebg-preview.png') }}" alt="Brand Logo">
                     <!-- Logo Path from Laravel Storage -->
                 </div>
             </a>
@@ -96,7 +96,7 @@
             <div class="col-lg-9 mx-auto">
                 <p class="mb-4">Every business has unique needs, and how the business owner decides to go about
                     satisfying those needs depends largely on the business model and type. One variable that is constant
-                    for all businesses is the need for funds required for the business to grow or expand by taking on
+                    for all businesses is the need for funds  for the business to grow or expand by taking on
                     new opportunities.</p>
 
                 <p class="mb-4">Vantage Cap Group provides small businesses with the funds that they need to face the
@@ -145,7 +145,7 @@
                     <div class="mb-3">
                         <label for="companyName" class="form-label">Company Name <span>*</span></label>
                         <input type="text" name="company_name" value="{{ old('company_name') }}" class="form-control"
-                            id="companyName" required>
+                            id="companyName" >
                     </div>
                     @error('company_name')
                         <div class="text-danger">{{ $message }}</div>
@@ -176,12 +176,12 @@
                             <div>
                                 <input type="radio" class="btn-check" name="business_years" id="businessYes"
                                     autocomplete="off" value="yes"
-                                    {{ old('business_years') == 'yes' ? 'checked' : '' }} required>
+                                    {{ old('business_years') == 'yes' ? 'checked' : '' }} >
                                 <label class="btn btn-outline-primary" for="businessYes">Yes</label>
 
                                 <input type="radio" class="btn-check" name="business_years" id="businessNo"
                                     autocomplete="off" value="no"
-                                    {{ old('business_years') == 'no' ? 'checked' : '' }} required>
+                                    {{ old('business_years') == 'no' ? 'checked' : '' }} >
                                 <label class="btn btn-outline-primary" for="businessNo">No</label>
                             </div>
                             @error('business_years')
@@ -201,7 +201,7 @@
                     <div class="mb-3">
                         <label for="businessAddress" class="form-label">Business Address <span>*</span></label>
                         <input type="text" name="business_address" value="{{ old('business_address') }}"
-                            class="form-control" id="businessAddress" placeholder="Address Line" required>
+                            class="form-control" id="businessAddress" placeholder="Address Line" >
                     </div>
                     @error('business_address')
                         <div class="text-danger">{{ $message }}</div>
@@ -210,14 +210,14 @@
                     <div class="row mb-3">
                         <div class="col-md-4">
                             <input type="text" name="city" value="{{ old('city') }}" class="form-control"
-                                id="city" placeholder="City" required>
+                                id="city" placeholder="City" >
                         </div>
                         @error('city')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
 
                         <div class="col-md-4">
-                            <select class="form-select" name="state" id="state" required>
+                            <select class="form-select" name="state" id="state" >
                                 <option selected>Select State</option>
                                 <option value="1" {{ old('state') == '1' ? 'selected' : '' }}>State 1</option>
                                 <option value="2" {{ old('state') == '2' ? 'selected' : '' }}>State 2</option>
@@ -233,7 +233,7 @@
 
                         <div class="col-md-4">
                             <input type="text" name="zip_code" value="{{ old('zip_code') }}"
-                                class="form-control" id="zipCode" placeholder="Zip Code" required>
+                                class="form-control" id="zipCode" placeholder="Zip Code" >
                         </div>
                         @error('zip_code')
                             <div class="text-danger">{{ $message }}</div>
@@ -246,7 +246,7 @@
                             <label for="businessPhone" class="form-label">Business Phone <span>*</span></label>
                             <input type="tel" class="form-control" id="businessPhone"
                                 value="{{ old('business_phone') }}" name="business_phone"
-                                placeholder="Enter phone number" required>
+                                placeholder="Enter phone number" >
                         </div>
                         @error('business_phone')
                             <div class="text-danger">{{ $message }}</div>
@@ -269,7 +269,7 @@
                     <div class="mb-3">
                         <label for="email" class="form-label">Email <span>*</span></label>
                         <input type="email" name="email" value="{{ old('email') }}" class="form-control"
-                            id="email" required>
+                            id="email" >
                     </div>
                     @error('email')
                         <div class="text-danger">{{ $message }}</div>
@@ -278,7 +278,7 @@
                     <div class="mb-3">
                         <label for="federalTaxId" class="form-label">Federal Tax ID <span>*</span></label>
                         <input type="text" name="federal_tax_id" value="{{ old('federal_tax_id') }}"
-                            class="form-control" id="federalTaxId" required>
+                            class="form-control" id="federalTaxId" >
                     </div>
                     @error('federal_tax_id')
                         <div class="text-danger">{{ $message }}</div>
@@ -297,7 +297,7 @@
                         <div class="col-md-6">
                             <label for="dateStarted" class="form-label">Date Started <span>*</span></label>
                             <input type="date" name="date_started" value="{{ old('date_started') }}"
-                                class="form-control" id="dateStarted" required>
+                                class="form-control" id="dateStarted" >
                         </div>
                         @error('date_started')
                             <div class="text-danger">{{ $message }}</div>
@@ -309,7 +309,7 @@
                         <div class="col-md-6">
                             <label for="entityType" class="form-label">Type of Entity <span>*</span></label>
                             <input type="text" name="entity_type" value="{{ old('entity_type') }}"
-                                class="form-control" id="entityType" required>
+                                class="form-control" id="entityType" >
                         </div>
                         @error('entity_type')
                             <div class="text-danger">{{ $message }}</div>
@@ -318,7 +318,7 @@
                         <div class="col-md-6">
                             <label for="businessType" class="form-label">Type of Business <span>*</span></label>
                             <input type="text" name="business_type" value="{{ old('business_type') }}"
-                                class="form-control" id="businessType" required>
+                                class="form-control" id="businessType" >
                         </div>
                         @error('business_type')
                             <div class="text-danger">{{ $message }}</div>
@@ -352,7 +352,7 @@
                         <div class="col-md-6">
                             <label for="ownerName" class="form-label">Owner Name <span>*</span></label>
                             <input type="text" name="owner_name" value="{{ old('owner_name') }}"
-                                class="form-control" id="ownerName" required>
+                                class="form-control" id="ownerName" >
                         </div>
                         @error('owner_name')
                             <div class="text-danger">{{ $message }}</div>
@@ -381,7 +381,7 @@
                     <div class="mb-3">
                         <label for="homeAddress" class="form-label">Home Address <span>*</span></label>
                         <input type="text" name="home_address" value="{{ old('home_address') }}"
-                            class="form-control" id="homeAddress" placeholder="Address Line" required>
+                            class="form-control" id="homeAddress" placeholder="Address Line" >
                     </div>
                     @error('home_address')
                         <div class="text-danger">{{ $message }}</div>
@@ -390,14 +390,14 @@
                     <div class="row mb-3">
                         <div class="col-md-4">
                             <input type="text" name="home_city" value="{{ old('home_city') }}"
-                                class="form-control" id="homeCity" placeholder="City" required>
+                                class="form-control" id="homeCity" placeholder="City" >
                         </div>
                         @error('home_city')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
 
                         <div class="col-md-4">
-                            <select class="form-select" name="home_state" id="state" required>
+                            <select class="form-select" name="home_state" id="state" >
                                 <option selected>Select State</option>
                                 <option value="1" {{ old('home_state') == '1' ? 'selected' : '' }}>State 1
                                 </option>
@@ -413,7 +413,7 @@
 
                         <div class="col-md-4">
                             <input type="text" name="home_zip" value="{{ old('home_zip') }}"
-                                class="form-control" id="homeZip" placeholder="Zip Code" required
+                                class="form-control" id="homeZip" placeholder="Zip Code"
                                 pattern="\d{5,10}">
                         </div>
                         @error('home_zip')
@@ -426,7 +426,7 @@
                         <div class="col-md-6">
                             <label for="ssn" class="form-label">SSN <span>*</span></label>
                             <input type="text" name="ssn" value="{{ old('ssn') }}" class="form-control"
-                                id="ssn" pattern="\d{3}-\d{2}-\d{4}" placeholder="XXX-XX-XXXX" required>
+                                id="ssn" pattern="\d{3}-\d{2}-\d{4}" placeholder="XXX-XX-XXXX" >
                         </div>
                         @error('ssn')
                             <div class="text-danger">{{ $message }}</div>
@@ -436,7 +436,7 @@
                         <div class="col-md-6">
                             <label for="dob" class="form-label">Date of Birth <span>*</span></label>
                             <input type="date" name="dob" value="{{ old('dob') }}" class="form-control"
-                                id="dob" required>
+                                id="dob" >
                         </div>
                         @error('dob')
                             <div class="text-danger">{{ $message }}</div>
@@ -447,7 +447,7 @@
                     <div class="mb-3">
                         <label for="cellPhone" class="form-label">Cell Phone <span>*</span></label>
                         <input type="tel" value="{{ old('cell_phone') }}" class="form-control"
-                            id="businessPhone" name="cell_phone" placeholder="Enter phone number" required>
+                            id="businessPhone" name="cell_phone" placeholder="Enter phone number" >
                     </div>
                     @error('cell_phone')
                         <div class="text-danger">{{ $message }}</div>
@@ -518,7 +518,7 @@
                         @enderror
 
                         <div class="col-md-4">
-                            <select class="form-select" name="partner_state" id="state" required>
+                            <select class="form-select" name="partner_state" id="state" >
                                 <option selected>Select State</option>
                                 <option value="1" {{ old('partner_state') == '1' ? 'selected' : '' }}>State 1
                                 </option>
@@ -535,7 +535,7 @@
                         <div class="col-md-4">
                             <label for="partnerZipCode" class="form-label">Parent Zip Code</label>
                             <input type="text" name="partner_zip_code" value="{{ old('partner_zip_code') }}"
-                                class="form-control" id="partnerZipCode" placeholder="Parent Zip Code" required>
+                                class="form-control" id="partnerZipCode" placeholder="Parent Zip Code" >
                         </div>
                         @error('partner_zip_code')
                             <div class="text-danger">{{ $message }}</div>
@@ -569,7 +569,7 @@
                             id="partnerPhone"> --}}
                         <input type="tel" class="form-control" id="partnerPhone"
                             value="{{ old('partner_phone') }}" name="partner_phone" placeholder="Enter phone number"
-                            required>
+                            >
                     </div>
                     @error('partner_phone')
                         <div class="text-danger">{{ $message }}</div>
@@ -636,7 +636,7 @@
                             <label for="ownerSignatureDate" class="form-label">Date <span>*</span></label>
                             <input type="date" name="owner_signature_date"
                                 value="{{ old('owner_signature_date') }}" class="form-control"
-                                id="ownerSignatureDate" required>
+                                id="ownerSignatureDate" >
                         </div>
                         @error('owner_signature_date')
                             <div class="text-danger">{{ $message }}</div>

@@ -62,7 +62,7 @@
 
         /* Custom CSS */
         .custom-section {
-            background-image: url('{{ asset('storage/logo/handshake.jpg') }}');
+            background-image: url('{{ asset('assets/logo/handshake.jpg') }}');
             /* Set the background image */
             background-size: cover;
             /* Ensure the image covers the full area */
@@ -186,7 +186,7 @@
         }
 
         .hero {
-            background-image: url("{{ asset('storage/logo/happy-businessman-calling.jpg') }}");
+            background-image: url("{{ asset('assets/logo/happy-businessman-calling.jpg') }}");
             background-size: cover;
             /* Ensures the full image is visible */
             background-position: center;
@@ -349,7 +349,7 @@
             }
 
             .custom-section {
-                background-image: url(http://corporatelandingcenter.test/storage/logo/handshake.jpg);
+                background-image: url(http://corporatelandingcenter.test/assets/logo/handshake.jpg);
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;
@@ -507,7 +507,7 @@
             }
 
             .custom-section {
-                background-image: url(http://corporatelandingcenter.test/storage/logo/handshake.jpg);
+                background-image: url(http://corporatelandingcenter.test/assets/logo/handshake.jpg);
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;
@@ -665,7 +665,7 @@
             }
 
             .custom-section {
-                background-image: url(http://corporatelandingcenter.test/storage/logo/handshake.jpg);
+                background-image: url(http://corporatelandingcenter.test/assets/logo/handshake.jpg);
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;
@@ -822,7 +822,7 @@
             }
 
             .custom-section {
-                background-image: url(http://corporatelandingcenter.test/storage/logo/handshake.jpg);
+                background-image: url(http://corporatelandingcenter.test/assets/logo/handshake.jpg);
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;
@@ -979,7 +979,7 @@
             }
 
             .custom-section {
-                background-image: url(http://corporatelandingcenter.test/storage/logo/handshake.jpg);
+                background-image: url(http://corporatelandingcenter.test/assets/logo/handshake.jpg);
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;
@@ -1097,8 +1097,8 @@
             <!-- Brand Logo -->
             <a class="navbar-brand" href="{{ url('/') }}">
                 <div class="brand-container">
-                    {{-- <img src="{{ asset('storage/logo/logo.jpg') }}" alt="Brand Logo"> --}}
-                    <img src="{{ asset('storage/logo/logo.png') }}" alt="Brand Logo">
+                    {{-- <img src="{{ asset('assets/logo/logo.jpg') }}" alt="Brand Logo"> --}}
+                    <img src="{{ asset('assets/logo/logo.png') }}" alt="Brand Logo">
                     <!-- Logo Path from Laravel Storage -->
                 </div>
             </a>
@@ -1174,12 +1174,12 @@
     <!-- Image Section -->
     <div class="container mt-5 text-center">
         <!-- Background image -->
-        {{-- <img src="{{ asset('storage/logo/backImage.jpg') }}" alt="" class="img-fluid mb-4"> --}}
+        {{-- <img src="{{ asset('assets/logo/backImage.jpg') }}" alt="" class="img-fluid mb-4"> --}}
 
 
         <!-- Centered image and button -->
         <div style="display: flex; justify-content: center; align-items: center; gap: 15px;">
-            <img src="{{ asset('storage/logo/image_1.png') }}" alt="" class="img-fluid">
+            <img src="{{ asset('assets/logo/image_1.png') }}" alt="" class="img-fluid">
             <a href="{{ route('apply.create') }}" class="apply-now-btn-2">Apply Now</a>
         </div>
 
@@ -1193,7 +1193,7 @@
         <div class="row g-0">
             <!-- First image and content section (First row) -->
             <div class="col-md-3">
-                <img class="card-img-top img-small" src="{{ asset('storage/logo/construction.png') }}"
+                <img class="card-img-top img-small" src="{{ asset('assets/logo/construction.png') }}"
                     alt="Card image cap">
                 <div class="card-body text-center">
                     <h5 class="card-title">CONSTRUCTION</h5>
@@ -1203,7 +1203,7 @@
 
             <!-- Second image and content section (First row) -->
             <div class="col-md-3">
-                <img class="card-img-top img-small" src="{{ asset('storage/logo/bar.png') }}" alt="Card image cap">
+                <img class="card-img-top img-small" src="{{ asset('assets/logo/bar.png') }}" alt="Card image cap">
                 <div class="card-body text-center">
                     <h5 class="card-title">RESTAURANTS AND BARS</h5>
                     <a href="{{ url('/apply-now/create') }}">learn more</a>
@@ -1212,7 +1212,7 @@
 
             <!-- Third image and content section (First row) -->
             <div class="col-md-3">
-                <img class="card-img-top img-small" src="{{ asset('storage/logo/health.png') }}" alt="Card image cap">
+                <img class="card-img-top img-small" src="{{ asset('assets/logo/health.png') }}" alt="Card image cap">
                 <div class="card-body text-center">
                     <h5 class="card-title">HEALTH CARE</h5>
                     <a href="{{ url('/apply-now/create') }}">learn more</a>
@@ -1221,7 +1221,7 @@
 
             <!-- Fourth image and content section (First row) -->
             <div class="col-md-3">
-                <img class="card-img-top img-small" src="{{ asset('storage/logo/franchise.png') }}"
+                <img class="card-img-top img-small" src="{{ asset('assets/logo/franchise.png') }}"
                     alt="Card image cap">
                 <div class="card-body text-center">
                     <h5 class="card-title">FRANCHISE</h5>
@@ -1234,7 +1234,7 @@
         <div class="row g-0">
             <!-- First image and content section (Second row) -->
             <div class="col-md-3">
-                <img class="card-img-top img-small" src="{{ asset('storage/logo/transportation.png') }}"
+                <img class="card-img-top img-small" src="{{ asset('assets/logo/transportation.png') }}"
                     alt="Card image cap">
                 <div class="card-body text-center">
                     <h5 class="card-title">TRANSPORTATION</h5>
@@ -1244,7 +1244,7 @@
 
             <!-- Second image and content section (Second row) -->
             <div class="col-md-3">
-                <img class="card-img-top img-small" src="{{ asset('storage/logo/auto.png') }}" alt="Card image cap">
+                <img class="card-img-top img-small" src="{{ asset('assets/logo/auto.png') }}" alt="Card image cap">
                 <div class="card-body text-center">
                     <h5 class="card-title">AUTO REPAIR</h5>
                     <a href="{{ url('/apply-now/create') }}">learn more</a>
@@ -1253,7 +1253,7 @@
 
             <!-- Third image and content section (Second row) -->
             <div class="col-md-3">
-                <img class="card-img-top img-small" src="{{ asset('storage/logo/retail.png') }}"
+                <img class="card-img-top img-small" src="{{ asset('assets/logo/retail.png') }}"
                     alt="Card image cap">
                 <div class="card-body text-center">
                     <h5 class="card-title">RETAIL</h5>
@@ -1263,7 +1263,7 @@
 
             <!-- Fourth image and content section (Second row) -->
             <div class="col-md-3">
-                <img class="card-img-top img-small" src="{{ asset('storage/logo/industry.png') }}"
+                <img class="card-img-top img-small" src="{{ asset('assets/logo/industry.png') }}"
                     alt="Card image cap">
                 <div class="card-body text-center">
                     <h5 class="card-title">ADDITIONAL INDUSTRIES</h5>
@@ -1283,21 +1283,21 @@
                     <!-- Row for the first set of three cards -->
                     <div class="row justify-content-center">
                         <div class="col-md-4">
-                            <img class="card-img-top  img-quick" src="{{ asset('storage/logo/clockw.png') }}"
+                            <img class="card-img-top  img-quick" src="{{ asset('assets/logo/clockw.png') }}"
                                 alt="Card image cap">
                             <div class="card-body text-center">
                                 <h5 class="card-title-white">Quick & Easy</h5>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <img class="card-img-top  img-quick" src="{{ asset('storage/logo/cardw.png') }}"
+                            <img class="card-img-top  img-quick" src="{{ asset('assets/logo/cardw.png') }}"
                                 alt="Card image cap">
                             <div class="card-body text-center">
                                 <h5 class="card-title-white">Absolute Security</h5>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <img class="card-img-top  img-quick" src="{{ asset('storage/logo/thumbw.png') }}"
+                            <img class="card-img-top  img-quick" src="{{ asset('assets/logo/thumbw.png') }}"
                                 alt="Card image cap">
                             <div class="card-body text-center">
                                 <h5 class="card-title-white">Quick Approval</h5>
@@ -1308,21 +1308,21 @@
                     <!-- Row for the second set of three cards -->
                     <div class="row justify-content-center">
                         <div class="col-md-4">
-                            <img class="card-img-top  img-quick" src="{{ asset('storage/logo/signalw.png') }}"
+                            <img class="card-img-top  img-quick" src="{{ asset('assets/logo/signalw.png') }}"
                                 alt="Card image cap">
                             <div class="card-body text-center">
                                 <h5 class="card-title-white">Low Interest Rates</h5>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <img class="card-img-top  img-quick" src="{{ asset('storage/logo/securityw.png') }}"
+                            <img class="card-img-top  img-quick" src="{{ asset('assets/logo/securityw.png') }}"
                                 alt="Card image cap">
                             <div class="card-body text-center">
                                 <h5 class="card-title-white">Personal Security</h5>
                             </div>
                         </div>
                         <div class="col-md-4 ">
-                            <img class="card-img-top img-quick" src="{{ asset('storage/logo/moneyw.png') }}"
+                            <img class="card-img-top img-quick" src="{{ asset('assets/logo/moneyw.png') }}"
                                 alt="Card image cap">
                             <div class="card-body text-center">
                                 <h5 class="card-title-white">Same Day Funding</h5>
@@ -1352,7 +1352,7 @@
                     <div class="carousel-item active" data-bs-interval="10000">
                         <div class="carousel-content">
                             <!-- Image in the first line -->
-                            <img src="{{ asset('storage/logo/coma.png') }}" class="d-block w-10" alt="...">
+                            <img src="{{ asset('assets/logo/coma.png') }}" class="d-block w-10" alt="...">
 
                             <!-- Caption/Text in the second line -->
                             <div class="carousel-caption d-md-block">
@@ -1366,7 +1366,7 @@
                     <div class="carousel-item" data-bs-interval="10000">
                         <div class="carousel-content">
                             <!-- Image in the first line -->
-                            <img src="{{ asset('storage/logo/coma.png') }}" class="d-block w-10" alt="...">
+                            <img src="{{ asset('assets/logo/coma.png') }}" class="d-block w-10" alt="...">
 
                             <!-- Caption/Text in the second line -->
                             <div class="carousel-caption d-none d-md-block">
@@ -1380,7 +1380,7 @@
                     <div class="carousel-item" data-bs-interval="10000">
                         <div class="carousel-content">
                             <!-- Image in the first line -->
-                            <img src="{{ asset('storage/logo/coma.png') }}" class="d-block w-10" alt="...">
+                            <img src="{{ asset('assets/logo/coma.png') }}" class="d-block w-10" alt="...">
 
                             <!-- Caption/Text in the second line -->
                             <div class="carousel-caption d-none d-md-block">
@@ -1420,9 +1420,9 @@
                     <!-- Row for the first set of three cards -->
                     <div class="row justify-content-center">
                         <div class="col-md-3">
-                            {{-- <img class="card-img-top img-small" src="{{ asset('storage/logo/logo.png') }}"
+                            {{-- <img class="card-img-top img-small" src="{{ asset('assets/logo/logo.png') }}"
                                 alt="Card image cap"> --}}
-                            {{-- <img class="card-img-top img-small" src="{{ asset('storage/logo/logo.jpg') }}"
+                            {{-- <img class="card-img-top img-small" src="{{ asset('assets/logo/logo.jpg') }}"
                                 alt="Brand Logo"> --}}
                             <div class="card-body text-left">
                                 <p class="card-title-white">Please remember though that how far you go is up to you.
